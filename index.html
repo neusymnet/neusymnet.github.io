@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#e8eef0" />
+    <meta
+      name="description"
+      content="The Future of Network Management is Neurosymbolic. Explore how learning and logic work together through five interactive research demonstrations."
+    />
+    <meta
+      property="og:title"
+      content="The Future of Network Management is Neurosymbolic"
+    />
+    <meta
+      property="og:description"
+      content="Neurosymbolic Networking: interactive explanations of LeJIT, Zoom2Net, PANTS, NetNomos, and ReGuard."
+    />
+    <meta property="og:type" content="website" />
+    <title>Neurosymbolic Networking</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <script type="module" src="assets/site.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Neurosymbolic networking, home"
+        ><svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M5 23V9l11 14V9M22 9l6 7-6 7" /></svg
+        ><span>Neurosymbolic Networking</span></a
+      >
+      <nav aria-label="Chapters">
+        <a href="#generation">Symbolic Generation</a
+        ><a href="#testing">Symbolic Testing</a
+        ><a href="#control">Symbolic Control</a
+        ><a href="#papers">Papers <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a>
+      </nav>
+      <details class="mobile-menu">
+        <summary>Contents</summary>
+        <nav aria-label="Mobile chapters">
+          <a href="#generation">Symbolic Generation</a
+          ><a href="#testing">Symbolic Testing</a
+          ><a href="#control">Symbolic Control</a
+          ><a href="#papers">Papers &amp; resources</a>
+        </nav>
+      </details>
+    </header>
+    <main id="main">
+      <section class="masthead" id="top">
+        <div class="reading-width">
+          <p class="byline">
+            <a href="https://netsyn.princeton.edu/">NetSyn</a
+            ><span> @ </span> Princeton University
+          </p>
+          <h1>The Future of Network Management is <em>Neurosymbolic</em></h1>
+          <p class="deck">
+            Neural learning captures what is likely.<br />Symbolic reasoning
+            expresses what is possible.
+          </p>
+
+          <div class="hero-links">
+            <a class="pill solid" href="#background"
+              >Explore the idea <span aria-hidden="true">↓</span></a
+            ><a class="pill" href="#papers"
+              >Read the papers <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 1000 205">
+            <defs>
+              <linearGradient id="hero-fade">
+                <stop stop-color="#6b7ba0" />
+                <stop offset="1" stop-color="#cf7850" />
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#hero-fade)" stroke-width="1.4">
+              <path
+                d="M0 175C150 175 225 10 370 55S600 205 700 105 830 100 1000 30"
+              />
+              <path
+                d="M0 145C170 145 220 155 370 80S540 190 700 105 850 50 1000 65"
+              />
+              <path
+                d="M0 90C160 90 250 10 370 55S540 15 700 105 850 80 1000 100"
+              />
+              <path
+                d="M0 40C150 40 250 155 370 80S540 15 700 105 850 135 1000 135"
+              />
+            </g>
+            <g fill="#e8eef0" stroke="#6b7ba0" stroke-width="2">
+              <circle cx="370" cy="55" r="7" />
+              <circle cx="370" cy="80" r="7" />
+            </g>
+            <path d="M700 35v142" stroke="#cf7850" stroke-width="2" />
+            <g fill="#e8eef0" stroke="#cf7850" stroke-width="2">
+              <circle cx="700" cy="105" r="12" />
+            </g>
+            <g font-family="system-ui,sans-serif" font-size="16" fill="#526269">
+              <text x="295" y="187">Learned possibilities</text>
+              <text x="713" y="48">Explicit rules</text>
+            </g>
+          </svg>
+        </div>
+        <div class="chapter-links reading-width">
+          <a href="#generation"><span>01</span> Logic-guided Generation</a
+          ><a href="#testing"><span>02</span> Logic-guided Testing</a
+          ><a href="#control"><span>03</span> Logic-guided Control</a>
+        </div>
+      </section>
+      <section
+        class="essay reading-width"
+        id="background"
+        aria-labelledby="background-title"
+      >
+        <p class="section-marker">The idea</p>
+        <h2 id="background-title">Background</h2>
+        <p class="intro">
+          Networks need both the flexibility of learning and the precision of
+          explicit rules.
+        </p>
+        <p>
+          A language model can capture complex traffic patterns and still
+          generate impossible packets. A learned controller can perform well on
+          average and still waste available capacity. Neurosymbolic network
+          management gives learned systems a layer of knowledge they can act on.
+        </p>
+        <div class="concept-pair">
+          <div>
+            <span class="concept-symbol neural" aria-hidden="true">∿</span>
+            <h3>Neural Components in Network Intelligence</h3>
+            <p>
+              Neural learning captures complex relationships in observations,
+              from traffic patterns to control policies.
+            </p>
+          </div>
+          <div>
+            <span class="concept-symbol symbolic" aria-hidden="true">{ }</span>
+            <h3>Symbolic Components in Network Intelligence</h3>
+            <p>
+              Symbolic knowledge states requirements we can inspect and check,
+              from link capacity to valid packet fields.
+            </p>
+          </div>
+        </div>
+        <p class="bridge">
+          Rules can guide what AI generates, focus testing on realistic inputs,
+          and correct decisions during deployment.
+        </p>
+      </section>
+
+      <section
+        class="chapter"
+        id="generation"
+        aria-labelledby="generation-title"
+      >
+        <div class="reading-width chapter-intro">
+          <p class="section-marker">01</p>
+          <h2 id="generation-title">Logic-guided Generation</h2>
+          <p class="intro">
+            Generated network data should follow the same rules as the network
+            it represents.
+          </p>
+        </div>
+        <article class="study" id="lejit" aria-labelledby="lejit-title">
+          <div class="reading-width study-intro">
+            <h3 id="lejit-title">
+              <strong>LeJIT:</strong> a case for Just-In-Time knowledge infusion
+            </h3>
+            <p>
+              A language model learns statistical patterns in network data.
+              LeJIT uses a logical solver to exclude choices that would violate
+              explicit requirements, while leaving the language model to choose
+              among the valid options.
+            </p>
+            <a
+              class="paper-link"
+              href="https://hhy.ee.princeton.edu/papers/2025_hotnets_lejit.pdf"
+              >LeJIT · HotNets 2025 <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </div>
+          <figure class="interactive lejit-live" data-live-demo="lejit">
+            <div class="demo-top">
+              <p>The LLM generates. LeJIT filters.</p>
+              <div class="player" hidden>
+                <button
+                  type="button"
+                  data-lejit-play
+                  aria-label="Pause token generation"
+                >
+                  Pause Ⅱ
+                </button>
+                <button
+                  type="button"
+                  data-lejit-reset
+                  aria-label="Restart token generation"
+                >
+                  ↺
+                </button>
+              </div>
+            </div>
+            <div class="visual" data-visual="lejit">
+              <!-- visual:lejit --><svg viewBox="0 0 760 553" role="group" aria-labelledby="lejit-diagram-title"><title id="lejit-diagram-title">LeJIT masks invalid next tokens using rules and an SMT solver. The LLM selects an allowed token and continues generating.</title><defs><marker id="lejit-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#59686e"/></marker></defs><g class="lejit-scene"><g class="diagram-tip" tabindex="0" data-tooltip="Generated traffic stays within link capacity." aria-label="Generated traffic stays within link capacity."><rect x="22" y="47" width="102" height="36" rx="4" fill="#fff" stroke="#ad5736" stroke-width="1.4"/><text class="diagram-text orange" x="73" y="71" text-anchor="middle" font-size="18" font-weight="400"><tspan x="73" dy="0">Capacity</tspan></text></g><g class="diagram-tip" tabindex="0" data-tooltip="Generated detail agrees with observed totals." aria-label="Generated detail agrees with observed totals."><rect x="131" y="47" width="102" height="36" rx="4" fill="#fff" stroke="#ad5736" stroke-width="1.4"/><text class="diagram-text orange" x="182" y="71" text-anchor="middle" font-size="18" font-weight="400"><tspan x="182" dy="0">Totals</tspan></text></g><g class="diagram-tip" tabindex="0" data-tooltip="Generated traffic reflects the supplied burst constraint." aria-label="Generated traffic reflects the supplied burst constraint."><rect x="240" y="47" width="102" height="36" rx="4" fill="#fff" stroke="#ad5736" stroke-width="1.4"/><text class="diagram-text orange" x="291" y="71" text-anchor="middle" font-size="18" font-weight="400"><tspan x="291" dy="0">Bursts</tspan></text></g><text class="diagram-text orange" x="22" y="29" text-anchor="start" font-size="18" font-weight="400"><tspan x="22" dy="0">Network rules</tspan></text><path class="data-flow" d="M349 65L563 65" fill="none" stroke="#ad5736" stroke-width="1.7" marker-end="url(#lejit-arrow)"/><g class="diagram-tip" tabindex="0" data-tooltip="The SMT solver checks the rules against the generated prefix. LeJIT converts the feasible continuations into a token mask before the LLM samples." aria-label="The SMT solver checks the rules against the generated prefix. LeJIT converts the feasible continuations into a token mask before the LLM samples."><rect x="572" y="39" width="164" height="53" rx="8" fill="#fae8dd" stroke="#ad5736" stroke-width="1.4"/><text class="diagram-text orange" x="654" y="72" text-anchor="middle" font-size="23" font-weight="400"><tspan x="654" dy="0">SMT solver</tspan></text></g><path d="M654 95V126H437V182" fill="none" stroke="#ad5736" stroke-width="1.7"  marker-end="url(#lejit-arrow)"/><text class="diagram-text blue" x="83" y="163" text-anchor="middle" font-size="24" font-weight="500"><tspan x="83" dy="0">LLM</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="The LLM proposes a distribution over next tokens and samples from the allowed choices." aria-label="The LLM proposes a distribution over next tokens and samples from the allowed choices."><circle cx="83" cy="260" r="43" fill="#e1e8f3" stroke="#526b98" stroke-width="1.8"/><path d="M62.2 240.8L83 234.4" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 240.8L83 252" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 240.8L83 269.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 240.8L83 285.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 260L83 234.4" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 260L83 252" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 260L83 269.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 260L83 285.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 279.2L83 234.4" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 279.2L83 252" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 279.2L83 269.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M62.2 279.2L83 285.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M83 234.4L103.8 245.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M83 234.4L103.8 274.4" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M83 252L103.8 245.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M83 252L103.8 274.4" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M83 269.6L103.8 245.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M83 269.6L103.8 274.4" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M83 285.6L103.8 245.6" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M83 285.6L103.8 274.4" fill="none" stroke="#526b98" stroke-width="1.5" /><circle cx="62.2" cy="240.8" r="4.16" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="62.2" cy="260" r="4.16" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="62.2" cy="279.2" r="4.16" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="83" cy="234.4" r="4.16" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="83" cy="252" r="4.16" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="83" cy="269.6" r="4.16" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="83" cy="285.6" r="4.16" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="103.8" cy="245.6" r="4.16" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="103.8" cy="274.4" r="4.16" fill="#fff" stroke="#526b98" stroke-width="2"/></g><path class="data-flow" d="M131 260L207 260" fill="none" stroke="#526b98" stroke-width="1.7" marker-end="url(#lejit-arrow)"/><text class="diagram-text blue" x="269" y="163" text-anchor="middle" font-size="21" font-weight="400"><tspan x="269" dy="0">Candidates</tspan></text><g class="lejit-filter"><rect x="419" y="187" width="36" height="156" rx="4" fill="#fae8dd" stroke="#ad5736" stroke-width="1.4"/><path d="M424 198L450 198" fill="none" stroke="#ad5736" stroke-width="1.5" /><path d="M424 220L450 220" fill="none" stroke="#ad5736" stroke-width="1.5" /><path d="M424 242L450 242" fill="none" stroke="#ad5736" stroke-width="1.5" /><path d="M424 264L450 264" fill="none" stroke="#ad5736" stroke-width="1.5" /><path d="M424 286L450 286" fill="none" stroke="#ad5736" stroke-width="1.5" /><path d="M424 308L450 308" fill="none" stroke="#ad5736" stroke-width="1.5" /><path d="M424 330L450 330" fill="none" stroke="#ad5736" stroke-width="1.5" /></g><text class="diagram-text orange" x="437" y="377" text-anchor="middle" font-size="23" font-weight="500"><tspan x="437" dy="0">LeJIT</tspan></text><text class="diagram-text green" x="651" y="163" text-anchor="middle" font-size="21" font-weight="400"><tspan x="651" dy="0">Next token</tspan></text><path d="M461 260L676 260" fill="none" stroke="#bac9cf" stroke-width="1.5" stroke-dasharray="4 5"/><rect x="627" y="236" width="48" height="48" rx="6" fill="none" stroke="#327762" stroke-width="1.4" stroke-dasharray="4 4"/><g class="lejit-selection"><rect x="627" y="236" width="48" height="48" rx="6" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/><text class="diagram-text green" x="651" y="267" text-anchor="middle" font-size="26" font-weight="400"><tspan x="651" dy="0">2</tspan></text></g><text class="diagram-text muted" x="651" y="316" text-anchor="middle" font-size="17" font-weight="400"><tspan x="651" dy="0">Selected by</tspan></text><text class="diagram-text muted" x="651" y="340" text-anchor="middle" font-size="17" font-weight="400"><tspan x="651" dy="0">the LLM</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Token “2” remains available to the LLM." aria-label="Token “2” remains available to the LLM."><g class="lejit-candidate allowed" data-token="2" data-allowed="true"><rect x="211" y="190" width="42" height="40" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="232" y="217" text-anchor="middle" font-size="24" font-weight="400"><tspan x="232" dy="0">2</tspan></text><path class="token-mask-cross" d="M218 197L246 223M246 197L218 223" stroke="#af4c4c" stroke-width="2.5"/></g></g><g class="diagram-tip" tabindex="0" data-tooltip="Token “7” is masked because it cannot satisfy the rules and output format from the current prefix." aria-label="Token “7” is masked because it cannot satisfy the rules and output format from the current prefix."><g class="lejit-candidate masked" data-token="7" data-allowed="false"><rect x="285" y="190" width="42" height="40" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="306" y="217" text-anchor="middle" font-size="24" font-weight="400"><tspan x="306" dy="0">7</tspan></text><path class="token-mask-cross" d="M292 197L320 223M320 197L292 223" stroke="#af4c4c" stroke-width="2.5"/></g></g><g class="diagram-tip" tabindex="0" data-tooltip="Token “0” remains available to the LLM." aria-label="Token “0” remains available to the LLM."><g class="lejit-candidate allowed" data-token="0" data-allowed="true"><rect x="211" y="245" width="42" height="40" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="232" y="272" text-anchor="middle" font-size="24" font-weight="400"><tspan x="232" dy="0">0</tspan></text><path class="token-mask-cross" d="M218 252L246 278M246 252L218 278" stroke="#af4c4c" stroke-width="2.5"/></g></g><g class="diagram-tip" tabindex="0" data-tooltip="Token “8” is masked because it cannot satisfy the rules and output format from the current prefix." aria-label="Token “8” is masked because it cannot satisfy the rules and output format from the current prefix."><g class="lejit-candidate masked" data-token="8" data-allowed="false"><rect x="285" y="245" width="42" height="40" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="306" y="272" text-anchor="middle" font-size="24" font-weight="400"><tspan x="306" dy="0">8</tspan></text><path class="token-mask-cross" d="M292 252L320 278M320 252L292 278" stroke="#af4c4c" stroke-width="2.5"/></g></g><g class="diagram-tip" tabindex="0" data-tooltip="Token “1” remains available to the LLM." aria-label="Token “1” remains available to the LLM."><g class="lejit-candidate allowed" data-token="1" data-allowed="true"><rect x="211" y="300" width="42" height="40" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="232" y="327" text-anchor="middle" font-size="24" font-weight="400"><tspan x="232" dy="0">1</tspan></text><path class="token-mask-cross" d="M218 307L246 333M246 307L218 333" stroke="#af4c4c" stroke-width="2.5"/></g></g><g class="diagram-tip" tabindex="0" data-tooltip="Token “9” is masked because it cannot satisfy the rules and output format from the current prefix." aria-label="Token “9” is masked because it cannot satisfy the rules and output format from the current prefix."><g class="lejit-candidate masked" data-token="9" data-allowed="false"><rect x="285" y="300" width="42" height="40" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="306" y="327" text-anchor="middle" font-size="24" font-weight="400"><tspan x="306" dy="0">9</tspan></text><path class="token-mask-cross" d="M292 307L320 333M320 307L292 333" stroke="#af4c4c" stroke-width="2.5"/></g></g><text class="diagram-text muted" x="24" y="414" text-anchor="start" font-size="18" font-weight="400"><tspan x="24" dy="0">Generated tokens</tspan></text><rect x="20" y="432" width="720" height="62" rx="6" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><g class="lejit-output-new" data-output-token="2"><rect x="27" y="442" width="49" height="40" rx="4" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/><text class="diagram-text green" x="51.5" y="469" text-anchor="middle" font-size="23" font-weight="400"><tspan x="51.5" dy="0">2</tspan></text></g><g class="lejit-flying-token" style="--from-x:232px;--from-y:210px;--gate-x:437px;--pick-x:651px;--out-x:51.5px" aria-hidden="true"><rect x="-19" y="-20" width="38" height="40" rx="5" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/><text class="diagram-text green" x="0" y="7" text-anchor="middle" font-size="24" font-weight="400"><tspan x="0" dy="0">2</tspan></text></g><text class="diagram-text muted" x="380" y="527" text-anchor="middle" font-size="24" font-weight="400"><tspan x="380" dy="0">Propose → mask → select → repeat</tspan></text></g></svg><!-- /visual:lejit -->
+            </div>
+            <div class="token-legend" aria-label="Token colors">
+              <span class="candidate-key">Candidates</span
+              ><span class="masked-key">Masked out</span
+              ><span class="allowed-key">Allowed choices</span>
+            </div>
+            <p class="narration">
+              LeJIT masks invalid tokens before the LLM chooses its next token.
+              The SMT solver uses the rules and the output so far to update the
+              mask as generation continues.
+            </p>
+            <figcaption>
+              Inspired by the token-masking sequence in the LeJIT HotNets
+              slides. Token choices illustrate the mechanism; the page does not
+              run an LLM or an SMT solver.
+            </figcaption>
+          </figure>
+        </article>
+
+        <article class="study" id="zoom2net" aria-labelledby="zoom2net-title">
+          <div class="reading-width study-intro">
+            <h3 id="zoom2net-title">
+              <strong>Zoom2Net:</strong> a case for knowledge-augmented training
+            </h3>
+            <p>
+              Coarse measurements can hide short traffic bursts. Zoom2Net learns
+              correlations among network signals to reconstruct fine detail.
+              Explicit constraints keep the reconstructed telemetry consistent
+              with measurements and operational knowledge.
+            </p>
+            <a
+              class="paper-link"
+              href="https://netsyn.princeton.edu/sites/g/files/toruqf3201/files/documents/sigcomm24.pdf"
+              >Zoom2Net · SIGCOMM 2024 <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </div>
+          <figure class="interactive" data-demo="zoom2net">
+            <div class="demo-top">
+              <p>Recover detail between measurements</p>
+              <div class="player" hidden>
+                <button
+                  type="button"
+                  data-play
+                  aria-label="Play Zoom2Net explanation"
+                >
+                  Play <span aria-hidden="true">▷</span></button
+                ><button
+                  type="button"
+                  data-reset
+                  aria-label="Restart Zoom2Net explanation"
+                >
+                  ↺
+                </button>
+              </div>
+            </div>
+            <div class="visual" data-visual="zoom2net">
+              <!-- visual:zoom2net --><svg viewBox="0 0 760 450" role="group" aria-labelledby="zoom2net-diagram-title"><title id="zoom2net-diagram-title">Observe. Each window averages 20, but an average cannot reveal when a burst occurred. Correlated measurements provide additional clues.</title><defs><marker id="zoom2net-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#59686e"/></marker></defs><g class="diagram-enter"><text class="diagram-text muted" x="24" y="28" text-anchor="start" font-size="18" font-weight="400"><tspan x="24" dy="0">Traffic per interval</tspan></text><path d="M570 23L602 23" fill="none" stroke="#59686e" stroke-width="1.5" stroke-dasharray="5 4"/><text class="diagram-text muted" x="610" y="29" text-anchor="start" font-size="15" font-weight="400"><tspan x="610" dy="0">Observed average</tspan></text><rect x="45" y="65" width="230" height="215" rx="0" fill="#fae8dd" stroke="#bac9cf" stroke-width="1.4"/><path d="M45 267L735 267" fill="none" stroke="#bac9cf" stroke-width="1.5" /><text class="diagram-text muted" x="35" y="273" text-anchor="end" font-size="16" font-weight="400"><tspan x="35" dy="0">0</tspan></text><path d="M45 215.9230769230769L735 215.9230769230769" fill="none" stroke="#bac9cf" stroke-width="1.5" /><text class="diagram-text muted" x="35" y="221.9230769230769" text-anchor="end" font-size="16" font-weight="400"><tspan x="35" dy="0">20</tspan></text><path d="M45 164.84615384615384L735 164.84615384615384" fill="none" stroke="#bac9cf" stroke-width="1.5" /><text class="diagram-text muted" x="35" y="170.84615384615384" text-anchor="end" font-size="16" font-weight="400"><tspan x="35" dy="0">40</tspan></text><path d="M45 113.76923076923077L735 113.76923076923077" fill="none" stroke="#bac9cf" stroke-width="1.5" /><text class="diagram-text muted" x="35" y="119.76923076923077" text-anchor="end" font-size="16" font-weight="400"><tspan x="35" dy="0">60</tspan></text><path d="M275 65L275 279" fill="none" stroke="#bac9cf" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M505 65L505 279" fill="none" stroke="#bac9cf" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M45 215.9230769230769L735 215.9230769230769" fill="none" stroke="#59686e" stroke-width="1.5" stroke-dasharray="7 6"/><text class="diagram-text muted" x="160" y="149" text-anchor="middle" font-size="47" font-weight="400"><tspan x="160" dy="0">?</tspan></text><text class="diagram-text muted" x="390" y="149" text-anchor="middle" font-size="47" font-weight="400"><tspan x="390" dy="0">?</tspan></text><text class="diagram-text muted" x="620" y="149" text-anchor="middle" font-size="47" font-weight="400"><tspan x="620" dy="0">?</tspan></text><text class="diagram-text muted" x="160" y="308" text-anchor="middle" font-size="17" font-weight="400"><tspan x="160" dy="0">Window 1</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Measured total: 100. Five intervals with an average of 20." aria-label="Measured total: 100. Five intervals with an average of 20."><rect x="54" y="325" width="212" height="13" rx="2" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><rect x="54" y="325" width="212" height="13" rx="2" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/></g><text class="diagram-text muted" x="160" y="366" text-anchor="middle" font-size="20" font-weight="400"><tspan x="160" dy="0">Total: 100</tspan></text><text class="diagram-text muted" x="390" y="308" text-anchor="middle" font-size="17" font-weight="400"><tspan x="390" dy="0">Window 2</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Measured total: 100. Five intervals with an average of 20." aria-label="Measured total: 100. Five intervals with an average of 20."><rect x="284" y="325" width="212" height="13" rx="2" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><rect x="284" y="325" width="212" height="13" rx="2" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/></g><text class="diagram-text muted" x="390" y="366" text-anchor="middle" font-size="20" font-weight="400"><tspan x="390" dy="0">Total: 100</tspan></text><text class="diagram-text muted" x="620" y="308" text-anchor="middle" font-size="17" font-weight="400"><tspan x="620" dy="0">Window 3</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Measured total: 100. Five intervals with an average of 20." aria-label="Measured total: 100. Five intervals with an average of 20."><rect x="514" y="325" width="212" height="13" rx="2" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><rect x="514" y="325" width="212" height="13" rx="2" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/></g><text class="diagram-text muted" x="620" y="366" text-anchor="middle" font-size="20" font-weight="400"><tspan x="620" dy="0">Total: 100</tspan></text><text class="diagram-text muted" x="380" y="420" text-anchor="middle" font-size="23" font-weight="400"><tspan x="380" dy="0">Coarse averages leave the detail unknown</tspan></text></g></svg><!-- /visual:zoom2net -->
+            </div>
+            <div
+              class="step-nav"
+              role="group"
+              aria-label="Zoom2Net explanation steps"
+              hidden
+            ></div>
+            <p class="narration" data-narration aria-live="polite">
+              Coarse averages hide when traffic arrives inside each observation
+              window.
+            </p>
+            <figcaption>
+              An illustrative reconstruction inspired by the Zoom2Net slides and
+              Figures 1 and 6. Several detailed histories can match the same
+              coarse measurements.
+            </figcaption>
+          </figure>
+        </article>
+      </section>
+
+      <section class="chapter" id="testing" aria-labelledby="testing-title">
+        <div class="reading-width chapter-intro">
+          <p class="section-marker">02</p>
+          <h2 id="testing-title">Logic-guided Testing</h2>
+          <p class="intro">
+            Useful tests must describe traffic that could actually reach the
+            deployed system.
+          </p>
+        </div>
+        <article class="study" id="pants" aria-labelledby="pants-title">
+          <div class="reading-width study-intro">
+            <h3 id="pants-title">PANTS</h3>
+            <p>
+              Adversarial search can propose input features that fool a network
+              classifier, yet correspond to impossible traffic. PANTS combines
+              that search with a solver that constructs realizable packets. It
+              then checks whether those packets still fool the classifier.
+            </p>
+            <a
+              class="paper-link"
+              href="https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-9-jin-minhao.pdf"
+              >PANTS · USENIX Security 2025 <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </div>
+          <figure class="interactive" data-demo="pants">
+            <div class="demo-top">
+              <p>From a difficult input to a real test</p>
+              <div class="player" hidden>
+                <button
+                  type="button"
+                  data-play
+                  aria-label="Play PANTS explanation"
+                >
+                  Play <span aria-hidden="true">▷</span></button
+                ><button
+                  type="button"
+                  data-reset
+                  aria-label="Restart PANTS explanation"
+                >
+                  ↺
+                </button>
+              </div>
+            </div>
+            <div class="visual" data-visual="pants">
+              <!-- visual:pants --><svg viewBox="0 0 760 445" role="group" aria-labelledby="pants-diagram-title"><title id="pants-diagram-title">Extract features. The classifier sees features extracted from packets, such as their average spacing. A test must account for the relationship between those features and real packets.</title><defs><marker id="pants-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#59686e"/></marker></defs><g class="diagram-enter"><rect x="30" y="25" width="190" height="70" rx="8" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="125" y="55" text-anchor="middle" font-size="18" font-weight="400"><tspan x="125" dy="0">Original</tspan><tspan x="125" dy="24.3">packets</tspan></text><path class="data-flow" d="M225 60L278 60" fill="none" stroke="#59686e" stroke-width="1.7" marker-end="url(#pants-arrow)"/><rect x="285" y="25" width="190" height="70" rx="8" fill="#fae8dd" stroke="#ad5736" stroke-width="1.4"/><text class="diagram-text orange" x="380" y="55" text-anchor="middle" font-size="18" font-weight="400"><tspan x="380" dy="0">Feature</tspan><tspan x="380" dy="24.3">extraction</tspan></text><path class="data-flow" d="M480 60L533 60" fill="none" stroke="#59686e" stroke-width="1.7" marker-end="url(#pants-arrow)"/><rect x="540" y="25" width="190" height="70" rx="8" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="635" y="55" text-anchor="middle" font-size="18" font-weight="400"><tspan x="635" dy="0">Network</tspan><tspan x="635" dy="24.3">classifier</tspan></text><text class="diagram-text muted" x="380" y="144" text-anchor="middle" font-size="20" font-weight="400"><tspan x="380" dy="0">Packet spacing becomes a classifier input</tspan></text><text class="diagram-text muted" x="24" y="233" text-anchor="start" font-size="18" font-weight="400"><tspan x="24" dy="0">Packet arrival times</tspan></text><path d="M50 289L710 289" fill="none" stroke="#bac9cf" stroke-width="1.5" /><rect x="37" y="267" width="26" height="42" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="50" y="295" text-anchor="middle" font-size="19" font-weight="400"><tspan x="50" dy="0">1</tspan></text><text class="diagram-text muted" x="50" y="337" text-anchor="middle" font-size="18" font-weight="400"><tspan x="50" dy="0">0 ms</tspan></text><rect x="192.2941176470588" y="267" width="26" height="42" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="205.2941176470588" y="295" text-anchor="middle" font-size="19" font-weight="400"><tspan x="205.2941176470588" dy="0">2</tspan></text><text class="diagram-text muted" x="205.2941176470588" y="337" text-anchor="middle" font-size="18" font-weight="400"><tspan x="205.2941176470588" dy="0">20 ms</tspan></text><rect x="347.5882352941176" y="267" width="26" height="42" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="360.5882352941176" y="295" text-anchor="middle" font-size="19" font-weight="400"><tspan x="360.5882352941176" dy="0">3</tspan></text><text class="diagram-text muted" x="360.5882352941176" y="337" text-anchor="middle" font-size="18" font-weight="400"><tspan x="360.5882352941176" dy="0">40 ms</tspan></text><rect x="502.88235294117646" y="267" width="26" height="42" rx="5" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="515.8823529411765" y="295" text-anchor="middle" font-size="19" font-weight="400"><tspan x="515.8823529411765" dy="0">4</tspan></text><text class="diagram-text muted" x="515.8823529411765" y="337" text-anchor="middle" font-size="18" font-weight="400"><tspan x="515.8823529411765" dy="0">60 ms</tspan></text><text class="diagram-text muted" x="380" y="383" text-anchor="middle" font-size="20" font-weight="400"><tspan x="380" dy="0">The classifier uses measurements,</tspan><tspan x="380" dy="27">not the raw timing story.</tspan></text></g></svg><!-- /visual:pants -->
+            </div>
+            <div
+              class="step-nav"
+              role="group"
+              aria-label="PANTS explanation steps"
+              hidden
+            ></div>
+            <p class="narration" data-narration aria-live="polite">
+              The classifier sees features extracted from packets, such as their
+              average spacing.
+            </p>
+            <figcaption>
+              A simplified reconstruction of PANTS Figure 4. The timing example
+              uses an illustrative 20 ms per-packet delay budget.
+            </figcaption>
+          </figure>
+          <div class="reading-width experiment" id="packet-experiment">
+            <h4>Could an attacker make this change?</h4>
+            <div
+              class="options"
+              role="group"
+              aria-label="Packet timing example"
+              hidden
+            >
+              <button type="button" data-packet="early" aria-pressed="true">
+                Earlier arrivals</button
+              ><button type="button" data-packet="late" aria-pressed="false">
+                Excessive delay</button
+              ><button type="button" data-packet="valid" aria-pressed="false">
+                Allowed delay
+              </button>
+            </div>
+            <div class="packet-comparison" id="packet-comparison">
+              <!-- packets --><svg viewBox="0 0 760 315" role="group" aria-labelledby="packet-timing-diagram-title"><title id="packet-timing-diagram-title">Packets on a shared 0 to 100 millisecond axis. Original: 0, 20, 40, 60. Candidate: 0, 10, 35, 60.</title><defs><marker id="packet-timing-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#59686e"/></marker></defs><g class="diagram-enter"><text class="diagram-text muted" x="25" y="25" text-anchor="start" font-size="18" font-weight="400"><tspan x="25" dy="0">Arrival time (ms)</tspan></text><path d="M45 61L45 245" fill="none" stroke="#bac9cf" stroke-width="1.5" stroke-dasharray="3 5"/><text class="diagram-text muted" x="45" y="55" text-anchor="middle" font-size="16" font-weight="400"><tspan x="45" dy="0">0</tspan></text><path d="M182.4 61L182.4 245" fill="none" stroke="#bac9cf" stroke-width="1.5" stroke-dasharray="3 5"/><text class="diagram-text muted" x="182.4" y="55" text-anchor="middle" font-size="16" font-weight="400"><tspan x="182.4" dy="0">20</tspan></text><path d="M319.8 61L319.8 245" fill="none" stroke="#bac9cf" stroke-width="1.5" stroke-dasharray="3 5"/><text class="diagram-text muted" x="319.8" y="55" text-anchor="middle" font-size="16" font-weight="400"><tspan x="319.8" dy="0">40</tspan></text><path d="M457.2 61L457.2 245" fill="none" stroke="#bac9cf" stroke-width="1.5" stroke-dasharray="3 5"/><text class="diagram-text muted" x="457.2" y="55" text-anchor="middle" font-size="16" font-weight="400"><tspan x="457.2" dy="0">60</tspan></text><path d="M594.6 61L594.6 245" fill="none" stroke="#bac9cf" stroke-width="1.5" stroke-dasharray="3 5"/><text class="diagram-text muted" x="594.6" y="55" text-anchor="middle" font-size="16" font-weight="400"><tspan x="594.6" dy="0">80</tspan></text><path d="M732 61L732 245" fill="none" stroke="#bac9cf" stroke-width="1.5" stroke-dasharray="3 5"/><text class="diagram-text muted" x="732" y="55" text-anchor="middle" font-size="16" font-weight="400"><tspan x="732" dy="0">100</tspan></text><text class="diagram-text blue" x="25" y="95" text-anchor="start" font-size="17" font-weight="400"><tspan x="25" dy="0">Original</tspan></text><text class="diagram-text muted" x="25" y="184" text-anchor="start" font-size="17" font-weight="400"><tspan x="25" dy="0">Candidate</tspan></text><path d="M45 123L732 123" fill="none" stroke="#bac9cf" stroke-width="1.5" /><g data-packet-key="0-0" transform="translate(45 0)"><g class="diagram-tip" tabindex="0" data-tooltip="Packet 1: 0 ms." aria-label="Packet 1: 0 ms."><rect x="-11" y="108" width="22" height="30" rx="4" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="0" y="129" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">1</tspan></text><text class="diagram-text blue" x="0" y="160" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">0</tspan></text></g></g><g data-packet-key="0-1" transform="translate(182.4 0)"><g class="diagram-tip" tabindex="0" data-tooltip="Packet 2: 20 ms." aria-label="Packet 2: 20 ms."><rect x="-11" y="108" width="22" height="30" rx="4" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="0" y="129" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">2</tspan></text><text class="diagram-text blue" x="0" y="160" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">20</tspan></text></g></g><g data-packet-key="0-2" transform="translate(319.8 0)"><g class="diagram-tip" tabindex="0" data-tooltip="Packet 3: 40 ms." aria-label="Packet 3: 40 ms."><rect x="-11" y="108" width="22" height="30" rx="4" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="0" y="129" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">3</tspan></text><text class="diagram-text blue" x="0" y="160" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">40</tspan></text></g></g><g data-packet-key="0-3" transform="translate(457.2 0)"><g class="diagram-tip" tabindex="0" data-tooltip="Packet 4: 60 ms." aria-label="Packet 4: 60 ms."><rect x="-11" y="108" width="22" height="30" rx="4" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text blue" x="0" y="129" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">4</tspan></text><text class="diagram-text blue" x="0" y="160" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">60</tspan></text></g></g><path d="M45 216L732 216" fill="none" stroke="#bac9cf" stroke-width="1.5" /><g data-packet-key="1-0" transform="translate(45 0)"><g class="diagram-tip" tabindex="0" data-tooltip="Packet 1: 0 ms. +0 ms relative to its original arrival. Allowed by the timing rules." aria-label="Packet 1: 0 ms. +0 ms relative to its original arrival. Allowed by the timing rules."><rect x="-11" y="201" width="22" height="30" rx="4" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/><text class="diagram-text green" x="0" y="222" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">1</tspan></text><text class="diagram-text green" x="0" y="271" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">+0</tspan></text></g></g><g data-shift="1" data-start="182.4" data-end="113.7"><rect x="172.4" y="203" width="20" height="26" rx="3" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><path class="data-flow" d="M182.4 243L113.7 243" fill="none" stroke="#af4c4c" stroke-width="1.7" marker-end="url(#packet-timing-arrow)"/></g><g data-packet-key="1-1" transform="translate(113.7 0)"><g class="diagram-tip" tabindex="0" data-tooltip="Packet 2: 10 ms. -10 ms relative to its original arrival. Not allowed by the timing rules." aria-label="Packet 2: 10 ms. -10 ms relative to its original arrival. Not allowed by the timing rules."><rect x="-11" y="201" width="22" height="30" rx="4" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><text class="diagram-text red" x="0" y="222" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">2</tspan></text><text class="diagram-text red" x="0" y="271" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">-10</tspan></text></g></g><g data-shift="2" data-start="319.8" data-end="285.45"><rect x="309.8" y="203" width="20" height="26" rx="3" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><path class="data-flow" d="M319.8 243L285.45 243" fill="none" stroke="#af4c4c" stroke-width="1.7" marker-end="url(#packet-timing-arrow)"/></g><g data-packet-key="1-2" transform="translate(285.45 0)"><g class="diagram-tip" tabindex="0" data-tooltip="Packet 3: 35 ms. -5 ms relative to its original arrival. Not allowed by the timing rules." aria-label="Packet 3: 35 ms. -5 ms relative to its original arrival. Not allowed by the timing rules."><rect x="-11" y="201" width="22" height="30" rx="4" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><text class="diagram-text red" x="0" y="222" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">3</tspan></text><text class="diagram-text red" x="0" y="271" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">-5</tspan></text></g></g><g data-packet-key="1-3" transform="translate(457.2 0)"><g class="diagram-tip" tabindex="0" data-tooltip="Packet 4: 60 ms. +0 ms relative to its original arrival. Allowed by the timing rules." aria-label="Packet 4: 60 ms. +0 ms relative to its original arrival. Allowed by the timing rules."><rect x="-11" y="201" width="22" height="30" rx="4" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/><text class="diagram-text green" x="0" y="222" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">4</tspan></text><text class="diagram-text green" x="0" y="271" text-anchor="middle" font-size="16" font-weight="400"><tspan x="0" dy="0">+0</tspan></text></g></g><text class="diagram-text muted" x="734" y="298" text-anchor="end" font-size="15" font-weight="400"><tspan x="734" dy="0">Delay relative to original (ms)</tspan></text></g></svg><!-- /packets -->
+            </div>
+            <div class="checks" id="packet-checks"></div>
+            <p id="packet-status" aria-live="polite">
+              An attacker restricted to delaying packets cannot make them arrive
+              earlier.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="chapter" id="control" aria-labelledby="control-title">
+        <div class="reading-width chapter-intro">
+          <p class="section-marker">03</p>
+          <h2 id="control-title">Logic-guided Control</h2>
+          <p class="intro">
+            Explicit rules turn observed behavior into knowledge that can guide
+            future decisions.
+          </p>
+        </div>
+        <article class="study" id="netnomos" aria-labelledby="netnomos-title">
+          <div class="reading-width study-intro">
+            <h3 id="netnomos-title">
+              <strong>NetNomos:</strong> a case for automated rule learning
+            </h3>
+            <p>
+              Network knowledge is scattered across standards, measurements, and
+              operator experience. NetNomos learns candidate rules directly from
+              data, filters them for meaning, and enforces them during
+              generation.
+            </p>
+            <a
+              class="paper-link"
+              href="https://hhy.ee.princeton.edu/papers/2026_nsdi_netnomos.pdf"
+              >NetNomos · NSDI 2026 <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </div>
+          <figure class="interactive" data-demo="netnomos">
+            <div class="demo-top">
+              <p>Learn rules from observations</p>
+              <div class="player" hidden>
+                <button
+                  type="button"
+                  data-play
+                  aria-label="Play NetNomos explanation"
+                >
+                  Play <span aria-hidden="true">▷</span></button
+                ><button
+                  type="button"
+                  data-reset
+                  aria-label="Restart NetNomos explanation"
+                >
+                  ↺
+                </button>
+              </div>
+            </div>
+            <div class="visual" data-visual="netnomos">
+              <!-- visual:netnomos --><svg viewBox="0 0 760 495" role="group" aria-labelledby="netnomos-diagram-title"><title id="netnomos-diagram-title">Define grammar Γ. The grammar defines typed signals, comparisons, logical connectives, and time windows. It gives NetNomos an expressive but bounded search space.</title><defs><marker id="netnomos-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#59686e"/></marker></defs><g class="diagram-enter"><text class="diagram-text ink" x="24" y="33" text-anchor="start" font-size="24" font-weight="500"><tspan x="24" dy="0">Grammar Γ</tspan></text><text class="diagram-text muted" x="736" y="33" text-anchor="end" font-size="16" font-weight="400"><tspan x="736" dy="0">Core productions</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Every variable has a type. Comparisons join terms of the same type." aria-label="Every variable has a type. Comparisons join terms of the same type."><rect x="20" y="54" width="720" height="35" rx="3" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.4"/><text class="diagram-text math ink" x="32" y="78" text-anchor="start" font-size="23">τ ∈ {time, size, id, flag, count}</text></g><g class="diagram-tip" tabindex="0" data-tooltip="The context contains K consecutive observations. A variable is indexed within that finite context." aria-label="The context contains K consecutive observations. A variable is indexed within that finite context."><rect x="20" y="91" width="720" height="35" rx="3" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><text class="diagram-text math ink" x="32" y="115" text-anchor="start" font-size="23">v<tspan baseline-shift="sub" font-size="70%">τ</tspan> ∈ V,  k ∈ {0, …, K − 1}</text></g><g class="diagram-tip" tabindex="0" data-tooltip="A predicate compares terms of the same type. The left side contains a single variable; the right side contains a constant, single variable, or aggregate." aria-label="A predicate compares terms of the same type. The left side contains a single variable; the right side contains a constant, single variable, or aggregate."><rect x="20" y="128" width="720" height="35" rx="3" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.4"/><text class="diagram-text math ink" x="32" y="152" text-anchor="start" font-size="23">p ::= (ℓ<tspan baseline-shift="sub" font-size="70%">τ</tspan> ⋈ r<tspan baseline-shift="sub" font-size="70%">τ</tspan>),  ⋈ ∈ {&lt;, ≤, =, ≠, ≥, &gt;}</text></g><g class="diagram-tip" tabindex="0" data-tooltip="Negation and logical connectives combine predicates. Square brackets mean optional; the star means repetition." aria-label="Negation and logical connectives combine predicates. Square brackets mean optional; the star means repetition."><rect x="20" y="165" width="720" height="35" rx="3" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><text class="diagram-text math ink" x="32" y="189" text-anchor="start" font-size="23">φ ::= [¬]p ((∨ | ∧ | ⇒) [¬]p)*</text></g><g class="diagram-tip" tabindex="0" data-tooltip="W is the context. An existential quantifier can only follow a universal quantifier and range within the K-observation context. ε means no quantifier." aria-label="W is the context. An existential quantifier can only follow a universal quantifier and range within the K-observation context. ε means no quantifier."><rect x="20" y="202" width="720" height="35" rx="3" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.4"/><text class="diagram-text math ink" x="32" y="226" text-anchor="start" font-size="23">Q ::= ε | ∀W | ∀W ∃v<tspan baseline-shift="sub" font-size="70%">k</tspan></text></g><g class="diagram-tip" tabindex="0" data-tooltip="A candidate constraint consists of a quantifier block followed by a formula. The full grammar also defines constants, arithmetic terms, and aggregates." aria-label="A candidate constraint consists of a quantifier block followed by a formula. The full grammar also defines constants, arithmetic terms, and aggregates."><rect x="20" y="239" width="720" height="35" rx="3" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><text class="diagram-text math ink" x="32" y="263" text-anchor="start" font-size="23">C ::= Q : φ</text></g><text class="diagram-text muted" x="24" y="314" text-anchor="start" font-size="18" font-weight="400"><tspan x="24" dy="0">A concrete window: K = 5</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Congestion was observed in the coarse window starting at t. The example rule looks for a burst somewhere inside that same window." aria-label="Congestion was observed in the coarse window starting at t. The example rule looks for a burst somewhere inside that same window."><text class="diagram-text math orange" x="24" y="370" text-anchor="start" font-size="25">Congestion<tspan baseline-shift="sub" font-size="70%">t</tspan><tspan baseline-shift="super" font-size="70%">K</tspan> &gt; 0</text></g><path class="data-flow" d="M298 364L348 364" fill="none" stroke="#59686e" stroke-width="1.7" marker-end="url(#netnomos-arrow)"/><path d="M358 342L735 342" fill="none" stroke="#ad5736" stroke-width="1.5" stroke-dasharray="5 4"/><text class="diagram-text math orange" x="734" y="335" text-anchor="end" font-size="15">BW/2</text><g class="diagram-tip" tabindex="0" data-tooltip="I at t+0 is 20. The burst can occur at another index in the same window." aria-label="I at t+0 is 20. The burst can occur at another index in the same window."><rect x="367" y="362" width="64.8" height="40" rx="2" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text muted" x="399.4" y="426" text-anchor="middle" font-size="16" font-weight="400"><tspan x="399.4" dy="0">t</tspan></text></g><g class="diagram-tip" tabindex="0" data-tooltip="I at t+1 is 15. The burst can occur at another index in the same window." aria-label="I at t+1 is 15. The burst can occur at another index in the same window."><rect x="441.8" y="372" width="64.8" height="30" rx="2" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text muted" x="474.2" y="426" text-anchor="middle" font-size="16" font-weight="400"><tspan x="474.2" dy="0">t+1</tspan></text></g><g class="diagram-tip" tabindex="0" data-tooltip="I at t+2 is 25. The burst can occur at another index in the same window." aria-label="I at t+2 is 25. The burst can occur at another index in the same window."><rect x="516.6" y="352" width="64.8" height="50" rx="2" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text muted" x="549" y="426" text-anchor="middle" font-size="16" font-weight="400"><tspan x="549" dy="0">t+2</tspan></text></g><g class="diagram-tip" tabindex="0" data-tooltip="I at t+3 is 39. The value 39 is at least BW/2 = 30, so the existential clause is satisfied." aria-label="I at t+3 is 39. The value 39 is at least BW/2 = 30, so the existential clause is satisfied."><rect x="591.4" y="324" width="64.8" height="78" rx="2" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/><text class="diagram-text muted" x="623.8" y="426" text-anchor="middle" font-size="16" font-weight="400"><tspan x="623.8" dy="0">t+3</tspan></text></g><g class="diagram-tip" tabindex="0" data-tooltip="I at t+4 is 1. The burst can occur at another index in the same window." aria-label="I at t+4 is 1. The burst can occur at another index in the same window."><rect x="666.2" y="400" width="64.8" height="2" rx="2" fill="#e1e8f3" stroke="#526b98" stroke-width="1.4"/><text class="diagram-text muted" x="698.6" y="426" text-anchor="middle" font-size="16" font-weight="400"><tspan x="698.6" dy="0">t+4</tspan></text></g><text class="diagram-text math green" x="380" y="468" text-anchor="middle" font-size="25">∃ 0 ≤ k &lt; 5 : I<tspan baseline-shift="sub" font-size="70%">t+k</tspan> ≥ BW/2</text></g></svg><!-- /visual:netnomos -->
+            </div>
+            <div
+              class="step-nav"
+              role="group"
+              aria-label="NetNomos explanation steps"
+              hidden
+            ></div>
+            <p class="narration" data-narration aria-live="polite">
+              A network-specific grammar defines the ingredients and structure
+              of candidate rules.
+            </p>
+            <figcaption>
+              The grammar and evidence-set search from NetNomos, redrawn from
+              slides 16–20. A rule that fits observations still needs a check
+              for semantic meaning.
+            </figcaption>
+          </figure>
+          <div class="reading-width experiment" id="rule-experiment">
+            <h4>Which clauses cover every observation?</h4>
+            <p>
+              A rule combines selected clauses with “or.” Try removing one
+              clause, or adding the redundant condition.
+            </p>
+            <div
+              class="clause-options"
+              role="group"
+              aria-label="Select rule clauses"
+              hidden
+            >
+              <button type="button" data-clause="a" aria-pressed="true">
+                <b>A</b> No congestion</button
+              ><button type="button" data-clause="b" aria-pressed="true">
+                <b>B</b> A burst occurs</button
+              ><button type="button" data-clause="c" aria-pressed="false">
+                <b>C</b> Extra condition
+              </button>
+            </div>
+            <div id="rule-evidence" class="rule-evidence">
+              <div class="observation covered">Sample 1<small>B ✓</small></div>
+              <div class="observation covered">Sample 2<small>A ✓</small></div>
+              <div class="observation covered">Sample 3<small>A ✓</small></div>
+              <div class="observation covered">Sample 4<small>B ✓</small></div>
+              <div class="observation covered">Sample 5<small>B ✓</small></div>
+            </div>
+            <p id="rule-status" aria-live="polite">
+              A or B covers every observation, and neither clause is redundant.
+            </p>
+          </div>
+        </article>
+
+        <article class="study" id="reguard" aria-labelledby="reguard-title">
+          <div class="reading-width study-intro">
+            <h3 id="reguard-title">
+              <strong>ReGuard:</strong> a case for rule-protected RL controllers
+            </h3>
+            <p>
+              A poor outcome does not always mean the controller made a poor
+              decision. ReGuard searches for conditions where better decisions
+              could have achieved more. It turns those counterfactual examples
+              into rules that correct recurring mistakes during deployment.
+            </p>
+            <a class="paper-link" href="https://arxiv.org/pdf/2605.04373"
+              >ReGuard · NSDI 2027, to appear
+              <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </div>
+          <figure class="interactive" data-demo="reguard">
+            <div class="demo-top">
+              <p>Discover, explain, protect, refine</p>
+              <div class="player" hidden>
+                <button
+                  type="button"
+                  data-play
+                  aria-label="Play ReGuard explanation"
+                >
+                  Play <span aria-hidden="true">▷</span></button
+                ><button
+                  type="button"
+                  data-reset
+                  aria-label="Restart ReGuard explanation"
+                >
+                  ↺
+                </button>
+              </div>
+            </div>
+            <div class="visual" data-visual="reguard">
+              <!-- visual:reguard --><svg viewBox="0 0 760 510" role="group" aria-labelledby="reguard-diagram-title"><title id="reguard-diagram-title">Discover. The outer search changes network conditions; the inner search finds a strong reference for the same conditions. The performance gap directs the search toward avoidable failures.</title><defs><marker id="reguard-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#59686e"/></marker></defs><g class="diagram-enter"><text class="diagram-text ink" x="380" y="30" text-anchor="middle" font-size="25" font-weight="500"><tspan x="380" dy="0">Test both controllers on the same bottleneck</tspan></text><text class="diagram-text red" x="30" y="73" text-anchor="start" font-size="21" font-weight="400"><tspan x="30" dy="0">Pensieve · 1850 Kbps</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Pensieve is an RL controller. Its neural policy selects the video bitrate without a symbolic guard." aria-label="Pensieve is an RL controller. Its neural policy selects the video bitrate without a symbolic guard."><g data-rl-controller="pensieve"><path d="M39.15 117.6L58 111.8" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 117.6L58 127.75" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 117.6L58 143.7" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 117.6L58 158.2" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 135L58 111.8" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 135L58 127.75" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 135L58 143.7" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 135L58 158.2" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 152.4L58 111.8" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 152.4L58 127.75" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 152.4L58 143.7" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M39.15 152.4L58 158.2" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M58 111.8L76.85 121.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M58 111.8L76.85 148.05" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M58 127.75L76.85 121.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M58 127.75L76.85 148.05" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M58 143.7L76.85 121.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M58 143.7L76.85 148.05" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M58 158.2L76.85 121.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M58 158.2L76.85 148.05" fill="none" stroke="#526b98" stroke-width="1.5" /><circle cx="39.15" cy="117.6" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="39.15" cy="135" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="39.15" cy="152.4" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="58" cy="111.8" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="58" cy="127.75" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="58" cy="143.7" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="58" cy="158.2" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="76.85" cy="121.95" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="76.85" cy="148.05" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/></g></g><text class="diagram-text blue" x="58" y="197" text-anchor="middle" font-size="14" font-weight="400"><tspan x="58" dy="0">RL controller</tspan></text><path d="M100 135L321 135" fill="none" stroke="#bac9cf" stroke-width="1.5" /><path d="M450 135L643 135" fill="none" stroke="#bac9cf" stroke-width="1.5" /><g class="diagram-tip" tabindex="0" data-tooltip="Sparse bandwidth slows chunk downloads. Both controller actions face the same link." aria-label="Sparse bandwidth slows chunk downloads. Both controller actions face the same link."><path d="M322 115H351L372 130H400L421 115H450V155H421L400 140H372L351 155H322Z" fill="#fae8dd" stroke="#ad5736" stroke-width="1.8"/></g><text class="diagram-text orange" x="386" y="187" text-anchor="middle" font-size="16" font-weight="400"><tspan x="386" dy="0">Bottleneck</tspan></text><text class="diagram-text red" x="211.5" y="110" text-anchor="middle" font-size="15" font-weight="400"><tspan x="211.5" dy="0">Video traffic</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Playback stalls when the small buffer empties before a large chunk arrives. The scene illustrates the failure mechanism." aria-label="Playback stalls when the small buffer empties before a large chunk arrives. The scene illustrates the failure mechanism."><rect x="643" y="106" width="62" height="48" rx="4" fill="#fff" stroke="#af4c4c" stroke-width="1.4"/><path d="M674 155L674 165" fill="none" stroke="#af4c4c" stroke-width="1.5" /><path d="M657 165L691 165" fill="none" stroke="#af4c4c" stroke-width="1.5" /><path d="M666 121v19M680 121v19" stroke="#af4c4c" stroke-width="5"/></g><rect x="643" y="176" width="62" height="10" rx="2" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><rect x="643" y="176" width="5" height="10" rx="2" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><text class="diagram-text muted" x="674" y="207" text-anchor="middle" font-size="15" font-weight="400"><tspan x="674" dy="0">Buffer</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="1850 Kbps requested video bitrate. Packet density illustrates the demand entering the link. Packet motion is schematic." aria-label="1850 Kbps requested video bitrate. Packet density illustrates the demand entering the link. Packet motion is schematic."><g data-stream="offered" data-bitrate="1850"><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:0s;--still:0px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-0.13333333333333333s;--still:12.055555555555555px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-0.26666666666666666s;--still:24.11111111111111px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-0.39999999999999997s;--still:36.166666666666664px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-0.5333333333333333s;--still:48.22222222222222px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-0.6666666666666666s;--still:60.27777777777778px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-0.7999999999999999s;--still:72.33333333333333px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-0.9333333333333333s;--still:84.38888888888889px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.0666666666666667s;--still:96.44444444444444px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.2s;--still:108.5px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.3333333333333333s;--still:120.55555555555556px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.4666666666666666s;--still:132.61111111111111px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.5999999999999999s;--still:144.66666666666666px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.7333333333333334s;--still:156.72222222222223px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.8666666666666667s;--still:168.77777777777777px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-2s;--still:180.83333333333334px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-2.1333333333333333s;--still:192.88888888888889px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-2.2666666666666666s;--still:204.94444444444446px"><rect x="100" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g></g></g><g data-stream="delivered" data-bitrate="1850"><g class="flow-packet" style="--travel:177px;--duration:2.8s;--delay:0s;--still:0px"><rect x="454" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:177px;--duration:2.8s;--delay:-0.7s;--still:44.25px"><rect x="454" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:177px;--duration:2.8s;--delay:-1.4s;--still:88.5px"><rect x="454" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:177px;--duration:2.8s;--delay:-2.0999999999999996s;--still:132.75px"><rect x="454" y="131" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g></g><g class="diagram-tip" tabindex="0" data-tooltip="The requested bitrate exceeds what the bottleneck can sustain. Data waits at the narrow link while the playback buffer drains." aria-label="The requested bitrate exceeds what the bottleneck can sustain. Data waits at the narrow link while the playback buffer drains."><rect x="344" y="121" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><rect x="356" y="121" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><rect x="344" y="140" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><rect x="356" y="140" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><path d="M30 227L725 227" fill="none" stroke="#bac9cf" stroke-width="1.5" /><text class="diagram-text green" x="30" y="263" text-anchor="start" font-size="21" font-weight="400"><tspan x="30" dy="0">Reference · 750 Kbps</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="A strong reference policy is selected under the same network conditions. It need not use reinforcement learning." aria-label="A strong reference policy is selected under the same network conditions. It need not use reinforcement learning."><rect x="35" y="300" width="46" height="50" rx="4" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/><path d="M45 312L71 312" fill="none" stroke="#327762" stroke-width="1.5" /><path d="M45 325L71 325" fill="none" stroke="#327762" stroke-width="1.5" /><path d="M45 338L71 338" fill="none" stroke="#327762" stroke-width="1.5" /></g><text class="diagram-text green" x="58" y="387" text-anchor="middle" font-size="14" font-weight="400"><tspan x="58" dy="0">Reference policy</tspan></text><path d="M100 325L321 325" fill="none" stroke="#bac9cf" stroke-width="1.5" /><path d="M450 325L643 325" fill="none" stroke="#bac9cf" stroke-width="1.5" /><g class="diagram-tip" tabindex="0" data-tooltip="Sparse bandwidth slows chunk downloads. Both controller actions face the same link." aria-label="Sparse bandwidth slows chunk downloads. Both controller actions face the same link."><path d="M322 305H351L372 320H400L421 305H450V345H421L400 330H372L351 345H322Z" fill="#fae8dd" stroke="#ad5736" stroke-width="1.8"/></g><text class="diagram-text orange" x="386" y="377" text-anchor="middle" font-size="16" font-weight="400"><tspan x="386" dy="0">Bottleneck</tspan></text><text class="diagram-text green" x="211.5" y="300" text-anchor="middle" font-size="15" font-weight="400"><tspan x="211.5" dy="0">Video traffic</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="The smaller video request helps avoid draining the playback buffer. The scene illustrates the correction, not a measured playback trace." aria-label="The smaller video request helps avoid draining the playback buffer. The scene illustrates the correction, not a measured playback trace."><rect x="643" y="296" width="62" height="48" rx="4" fill="#fff" stroke="#327762" stroke-width="1.4"/><path d="M674 345L674 355" fill="none" stroke="#327762" stroke-width="1.5" /><path d="M657 355L691 355" fill="none" stroke="#327762" stroke-width="1.5" /><path d="M668 308l17 12-17 12Z" fill="#327762"/></g><rect x="643" y="366" width="62" height="10" rx="2" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><rect x="643" y="366" width="30" height="10" rx="2" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/><text class="diagram-text muted" x="674" y="397" text-anchor="middle" font-size="15" font-weight="400"><tspan x="674" dy="0">Buffer</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="750 Kbps requested video bitrate. Packet density illustrates the demand entering the link. Packet motion is schematic." aria-label="750 Kbps requested video bitrate. Packet density illustrates the demand entering the link. Packet motion is schematic."><g data-stream="offered" data-bitrate="750"><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:0s;--still:0px"><rect x="100" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-0.34285714285714286s;--still:31px"><rect x="100" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-0.6857142857142857s;--still:62px"><rect x="100" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.0285714285714285s;--still:93px"><rect x="100" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.3714285714285714s;--still:124px"><rect x="100" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-1.7142857142857142s;--still:155px"><rect x="100" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:217px;--duration:2.4s;--delay:-2.057142857142857s;--still:186px"><rect x="100" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g></g></g><g data-stream="delivered" data-bitrate="750"><g class="flow-packet" style="--travel:177px;--duration:2.8s;--delay:0s;--still:0px"><rect x="454" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:177px;--duration:2.8s;--delay:-0.9333333333333332s;--still:59px"><rect x="454" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:177px;--duration:2.8s;--delay:-1.8666666666666665s;--still:118px"><rect x="454" y="321" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g></g><path d="M745 350V118H720" fill="none" stroke="#ad5736" stroke-width="1.7" stroke-dasharray="5 5" marker-end="url(#reguard-arrow)"/><g class="diagram-tip" tabindex="0" data-tooltip="The outer search varies network conditions to increase avoidable loss. The inner search looks for a stronger reference policy under the same conditions." aria-label="The outer search varies network conditions to increase avoidable loss. The inner search looks for a stronger reference policy under the same conditions."><text class="diagram-text orange" x="380" y="462" text-anchor="middle" font-size="23" font-weight="400"><tspan x="380" dy="0">Network search ↻    Better reference ↻</tspan></text></g></g></svg><!-- /visual:reguard -->
+            </div>
+            <div
+              class="step-nav"
+              role="group"
+              aria-label="ReGuard explanation steps"
+              hidden
+            ></div>
+            <p class="narration" data-narration aria-live="polite">
+              The outer search changes network conditions; the inner search
+              finds a strong reference for the same conditions.
+            </p>
+            <figcaption>
+              Bitrate choices and the 750 Kbps rule follow ReGuard slides 12–13.
+              Network scenes illustrate the failure mechanisms.
+            </figcaption>
+          </figure>
+          <div class="reading-width experiment guard-experiment">
+            <div class="experiment-heading">
+              <h4>ReGuard corrects risky controller actions.</h4>
+              <label class="guard-switch" hidden
+                ><input id="protection" type="checkbox" checked /><span
+                  >Apply protection</span
+                ></label
+              >
+            </div>
+            <div
+              class="options"
+              role="group"
+              aria-label="Controller scenario"
+              hidden
+            >
+              <button type="button" data-case="pensieve" aria-pressed="true">
+                Pensieve · video</button
+              ><button type="button" data-case="sage" aria-pressed="false">
+                Sage · congestion</button
+              ><button type="button" data-case="normal" aria-pressed="false">
+                Normal conditions
+              </button>
+            </div>
+            <div id="guard-visual" class="guard-visual"><svg viewBox="0 0 760 480" role="group" aria-labelledby="guard-diagram-title"><title id="guard-diagram-title">Pensieve requests an oversized video chunk on a bottleneck link. Protection on.</title><defs><marker id="guard-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#59686e"/></marker></defs><g class="diagram-enter"><text class="diagram-text ink" x="25" y="32" text-anchor="start" font-size="24" font-weight="400"><tspan x="25" dy="0">Sparse bandwidth and a low playback buffer</tspan></text><text class="diagram-text red" x="25" y="77" text-anchor="start" font-size="22" font-weight="400"><tspan x="25" dy="0">Pensieve · 1850 Kbps</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Pensieve is an RL controller. Its neural policy selects the video bitrate without a symbolic guard." aria-label="Pensieve is an RL controller. Its neural policy selects the video bitrate without a symbolic guard."><g data-rl-controller="pensieve"><path d="M32.15 121.6L51 115.8" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 121.6L51 131.75" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 121.6L51 147.7" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 121.6L51 162.2" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 139L51 115.8" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 139L51 131.75" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 139L51 147.7" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 139L51 162.2" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 156.4L51 115.8" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 156.4L51 131.75" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 156.4L51 147.7" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 156.4L51 162.2" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 115.8L69.85 125.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 115.8L69.85 152.05" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 131.75L69.85 125.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 131.75L69.85 152.05" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 147.7L69.85 125.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 147.7L69.85 152.05" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 162.2L69.85 125.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 162.2L69.85 152.05" fill="none" stroke="#526b98" stroke-width="1.5" /><circle cx="32.15" cy="121.6" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="32.15" cy="139" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="32.15" cy="156.4" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="51" cy="115.8" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="51" cy="131.75" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="51" cy="147.7" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="51" cy="162.2" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="69.85" cy="125.95" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="69.85" cy="152.05" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/></g></g><text class="diagram-text blue" x="51" y="201" text-anchor="middle" font-size="14" font-weight="400"><tspan x="51" dy="0">RL controller</tspan></text><path d="M93 139L324.40000000000003 139" fill="none" stroke="#bac9cf" stroke-width="1.5" /><path d="M453.40000000000003 139L656 139" fill="none" stroke="#bac9cf" stroke-width="1.5" /><g class="diagram-tip" tabindex="0" data-tooltip="Sparse bandwidth slows chunk downloads. Both controller actions face the same link." aria-label="Sparse bandwidth slows chunk downloads. Both controller actions face the same link."><path d="M325.40000000000003 119H354.40000000000003L375.40000000000003 134H403.40000000000003L424.40000000000003 119H453.40000000000003V159H424.40000000000003L403.40000000000003 144H375.40000000000003L354.40000000000003 159H325.40000000000003Z" fill="#fae8dd" stroke="#ad5736" stroke-width="1.8"/></g><text class="diagram-text orange" x="389.40000000000003" y="191" text-anchor="middle" font-size="16" font-weight="400"><tspan x="389.40000000000003" dy="0">Bottleneck</tspan></text><text class="diagram-text red" x="209.70000000000002" y="114" text-anchor="middle" font-size="15" font-weight="400"><tspan x="209.70000000000002" dy="0">Video traffic</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="Playback stalls when the small buffer empties before a large chunk arrives. The scene illustrates the failure mechanism." aria-label="Playback stalls when the small buffer empties before a large chunk arrives. The scene illustrates the failure mechanism."><rect x="656" y="110" width="62" height="48" rx="4" fill="#fff" stroke="#af4c4c" stroke-width="1.4"/><path d="M687 159L687 169" fill="none" stroke="#af4c4c" stroke-width="1.5" /><path d="M670 169L704 169" fill="none" stroke="#af4c4c" stroke-width="1.5" /><path d="M679 125v19M693 125v19" stroke="#af4c4c" stroke-width="5"/></g><rect x="656" y="180" width="62" height="10" rx="2" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><rect x="656" y="180" width="5" height="10" rx="2" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><text class="diagram-text muted" x="687" y="211" text-anchor="middle" font-size="15" font-weight="400"><tspan x="687" dy="0">Buffer</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="1850 Kbps requested video bitrate. Packet density illustrates the demand entering the link. Packet motion is schematic." aria-label="1850 Kbps requested video bitrate. Packet density illustrates the demand entering the link. Packet motion is schematic."><g data-stream="offered" data-bitrate="1850"><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:0s;--still:0px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-0.13333333333333333s;--still:12.633333333333335px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-0.26666666666666666s;--still:25.26666666666667px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-0.39999999999999997s;--still:37.900000000000006px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-0.5333333333333333s;--still:50.53333333333334px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-0.6666666666666666s;--still:63.16666666666668px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-0.7999999999999999s;--still:75.80000000000001px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-0.9333333333333333s;--still:88.43333333333334px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-1.0666666666666667s;--still:101.06666666666668px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-1.2s;--still:113.70000000000002px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-1.3333333333333333s;--still:126.33333333333336px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-1.4666666666666666s;--still:138.9666666666667px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-1.5999999999999999s;--still:151.60000000000002px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-1.7333333333333334s;--still:164.23333333333335px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-1.8666666666666667s;--still:176.86666666666667px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-2s;--still:189.50000000000003px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-2.1333333333333333s;--still:202.13333333333335px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-2.2666666666666666s;--still:214.7666666666667px"><rect x="93" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g></g></g><g data-stream="delivered" data-bitrate="1850"><g class="flow-packet" style="--travel:186.59999999999997px;--duration:2.8s;--delay:0s;--still:0px"><rect x="457.40000000000003" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:186.59999999999997px;--duration:2.8s;--delay:-0.7s;--still:46.64999999999999px"><rect x="457.40000000000003" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:186.59999999999997px;--duration:2.8s;--delay:-1.4s;--still:93.29999999999998px"><rect x="457.40000000000003" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:186.59999999999997px;--duration:2.8s;--delay:-2.0999999999999996s;--still:139.95px"><rect x="457.40000000000003" y="135" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g></g><g class="diagram-tip" tabindex="0" data-tooltip="The requested bitrate exceeds what the bottleneck can sustain. Data waits at the narrow link while the playback buffer drains." aria-label="The requested bitrate exceeds what the bottleneck can sustain. Data waits at the narrow link while the playback buffer drains."><rect x="347.40000000000003" y="125" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><rect x="359.40000000000003" y="125" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><rect x="347.40000000000003" y="144" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/><rect x="359.40000000000003" y="144" width="9" height="8" rx="1" fill="#f8e2e1" stroke="#af4c4c" stroke-width="1.4"/></g><path d="M24 229L736 229" fill="none" stroke="#bac9cf" stroke-width="1.5" /><text class="diagram-text green" x="25" y="272" text-anchor="start" font-size="22" font-weight="400"><tspan x="25" dy="0">Protected · 300 Kbps</tspan></text><g class="controller-shield" data-protection-shield="true"><path d="M51 292L88 304V342Q88 367 51 383Q14 367 14 342V304Z" fill="#fae8dd" stroke="#ad5736" stroke-width="2.5"/></g><g class="diagram-tip" tabindex="0" data-tooltip="ReGuard shields the Pensieve RL controller. The learned rule limits its risky bitrate choices." aria-label="ReGuard shields the Pensieve RL controller. The learned rule limits its risky bitrate choices."><g data-rl-controller="pensieve"><path d="M32.15 317.6L51 311.8" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 317.6L51 327.75" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 317.6L51 343.7" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 317.6L51 358.2" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 335L51 311.8" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 335L51 327.75" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 335L51 343.7" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 335L51 358.2" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 352.4L51 311.8" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 352.4L51 327.75" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 352.4L51 343.7" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M32.15 352.4L51 358.2" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 311.8L69.85 321.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 311.8L69.85 348.05" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 327.75L69.85 321.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 327.75L69.85 348.05" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 343.7L69.85 321.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 343.7L69.85 348.05" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 358.2L69.85 321.95" fill="none" stroke="#526b98" stroke-width="1.5" /><path d="M51 358.2L69.85 348.05" fill="none" stroke="#526b98" stroke-width="1.5" /><circle cx="32.15" cy="317.6" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="32.15" cy="335" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="32.15" cy="352.4" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="51" cy="311.8" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="51" cy="327.75" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="51" cy="343.7" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="51" cy="358.2" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="69.85" cy="321.95" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/><circle cx="69.85" cy="348.05" r="3.77" fill="#fff" stroke="#526b98" stroke-width="2"/></g></g><text class="diagram-text blue" x="51" y="397" text-anchor="middle" font-size="14" font-weight="400"><tspan x="51" dy="0">RL controller</tspan></text><path d="M93 335L324.40000000000003 335" fill="none" stroke="#bac9cf" stroke-width="1.5" /><path d="M453.40000000000003 335L656 335" fill="none" stroke="#bac9cf" stroke-width="1.5" /><g class="diagram-tip" tabindex="0" data-tooltip="Sparse bandwidth slows chunk downloads. Both controller actions face the same link." aria-label="Sparse bandwidth slows chunk downloads. Both controller actions face the same link."><path d="M325.40000000000003 315H354.40000000000003L375.40000000000003 330H403.40000000000003L424.40000000000003 315H453.40000000000003V355H424.40000000000003L403.40000000000003 340H375.40000000000003L354.40000000000003 355H325.40000000000003Z" fill="#fae8dd" stroke="#ad5736" stroke-width="1.8"/></g><text class="diagram-text orange" x="389.40000000000003" y="387" text-anchor="middle" font-size="16" font-weight="400"><tspan x="389.40000000000003" dy="0">Bottleneck</tspan></text><text class="diagram-text green" x="209.70000000000002" y="310" text-anchor="middle" font-size="15" font-weight="400"><tspan x="209.70000000000002" dy="0">Video traffic</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="The smaller video request helps avoid draining the playback buffer. The scene illustrates the correction, not a measured playback trace." aria-label="The smaller video request helps avoid draining the playback buffer. The scene illustrates the correction, not a measured playback trace."><rect x="656" y="306" width="62" height="48" rx="4" fill="#fff" stroke="#327762" stroke-width="1.4"/><path d="M687 355L687 365" fill="none" stroke="#327762" stroke-width="1.5" /><path d="M670 365L704 365" fill="none" stroke="#327762" stroke-width="1.5" /><path d="M681 318l17 12-17 12Z" fill="#327762"/></g><rect x="656" y="376" width="62" height="10" rx="2" fill="#fff" stroke="#bac9cf" stroke-width="1.4"/><rect x="656" y="376" width="30" height="10" rx="2" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/><text class="diagram-text muted" x="687" y="407" text-anchor="middle" font-size="15" font-weight="400"><tspan x="687" dy="0">Buffer</tspan></text><g class="diagram-tip" tabindex="0" data-tooltip="300 Kbps requested video bitrate. Packet density illustrates the demand entering the link. Packet motion is schematic." aria-label="300 Kbps requested video bitrate. Packet density illustrates the demand entering the link. Packet motion is schematic."><g data-stream="offered" data-bitrate="300"><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:0s;--still:0px"><rect x="93" y="331" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-0.7999999999999999s;--still:75.80000000000001px"><rect x="93" y="331" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:227.40000000000003px;--duration:2.4s;--delay:-1.5999999999999999s;--still:151.60000000000002px"><rect x="93" y="331" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g></g></g><g data-stream="delivered" data-bitrate="300"><g class="flow-packet" style="--travel:186.59999999999997px;--duration:2.8s;--delay:0s;--still:0px"><rect x="457.40000000000003" y="331" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g><g class="flow-packet" style="--travel:186.59999999999997px;--duration:2.8s;--delay:-1.4s;--still:93.29999999999998px"><rect x="457.40000000000003" y="331" width="9" height="8" rx="1" fill="#e3f0e9" stroke="#327762" stroke-width="1.4"/></g></g><text class="diagram-text green" x="380" y="460" text-anchor="middle" font-size="25" font-weight="400"><tspan x="380" dy="0">1850 → 300 Kbps</tspan></text></g></svg></div>
+            <p id="guard-status" aria-live="polite">
+              A low playback buffer, slow downloads, and a large next chunk call
+              for a lower bitrate.
+            </p>
+            <p class="small-note">
+              Pensieve bitrates follow ReGuard slides 12–13. The Sage curves and
+              network scenes are schematic. Hover over or focus on a diagram
+              element for details.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section
+        class="essay reading-width"
+        id="agenda"
+        aria-labelledby="agenda-title"
+      >
+        <p class="section-marker">Looking ahead</p>
+        <h2 id="agenda-title">The research agenda</h2>
+        <p class="intro">
+          Network AI needs knowledge it can inspect, update, and use at the
+          right moment.
+        </p>
+        <div class="agenda-lines">
+          <div>
+            <h3>Discover meaningful rules</h3>
+            <p>
+              Distinguish recurring relationships from coincidences and express
+              richer behavior over time.
+            </p>
+          </div>
+          <div>
+            <h3>Make reasoning efficient</h3>
+            <p>
+              Integrate learning and constraint enforcement so that explicit
+              knowledge can guide decisions under tight latency requirements.
+            </p>
+          </div>
+          <div>
+            <h3>Keep protection useful</h3>
+            <p>
+              Find new failures and update the rules as networks and workloads
+              change.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="papers reading-width"
+        id="papers"
+        aria-labelledby="papers-title"
+      >
+        <p class="section-marker">Further reading</p>
+        <h2 id="papers-title">Papers &amp; resources</h2>
+        <p>
+          The papers provide the full methods and experimental results behind
+          the demonstrations.
+        </p>
+        <ol class="paper-list">
+          <li>
+            <div class="paper-meta">LeJIT · HotNets 2025</div>
+            <h3>
+              <a
+                href="https://hhy.ee.princeton.edu/papers/2025_hotnets_lejit.pdf"
+                >Just-in-Time Logic Enforcement: A new paradigm of combining
+                statistical and symbolic reasoning for network management
+                <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+              >
+            </h3>
+            <p>Hongyu Hè and Maria Apostolaki</p>
+            <a class="resource" href="https://github.com/HongyuHe/LeJIT"
+              >Code <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </li>
+          <li>
+            <div class="paper-meta">Zoom2Net · SIGCOMM 2024</div>
+            <h3>
+              <a
+                href="https://netsyn.princeton.edu/sites/g/files/toruqf3201/files/documents/sigcomm24.pdf"
+                >Zoom2Net: Constrained Network Telemetry Imputation
+                <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+              >
+            </h3>
+            <p>
+              Fengchen Gong, Divya Raghunathan, Aarti Gupta, and Maria
+              Apostolaki
+            </p>
+            <a class="resource" href="https://doi.org/10.1145/3651890.3672225"
+              >Publication <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </li>
+          <li>
+            <div class="paper-meta">PANTS · USENIX Security 2025</div>
+            <h3>
+              <a
+                href="https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-9-jin-minhao.pdf"
+                >Robustifying ML-powered Network Classifiers with PANTS
+                <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+              >
+            </h3>
+            <p>Minhao Jin and Maria Apostolaki</p>
+            <a
+              class="resource"
+              href="https://www.usenix.org/conference/usenixsecurity25/presentation/jin-minhao"
+              >Talk &amp; publication <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </li>
+          <li>
+            <div class="paper-meta">NetNomos · NSDI 2026</div>
+            <h3>
+              <a
+                href="https://hhy.ee.princeton.edu/papers/2026_nsdi_netnomos.pdf"
+                >Making Logic a First-Class Citizen in Generative ML for
+                Networking <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+              >
+            </h3>
+            <p>Hongyu Hè, Minhao Jin, and Maria Apostolaki</p>
+            <a
+              class="resource"
+              href="https://www.usenix.org/conference/nsdi26/presentation/he"
+              >Talk &amp; publication <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </li>
+          <li>
+            <div class="paper-meta">ReGuard · NSDI 2027, to appear</div>
+            <h3>
+              <a href="https://arxiv.org/pdf/2605.04373"
+                >Worst-Case Discovery and Runtime Protection for RL-Based
+                Network Controllers <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+              >
+            </h3>
+            <p>Hongyu Hè, Minhao Jin, and Maria Apostolaki</p>
+            <a class="resource" href="https://arxiv.org/abs/2605.04373"
+              >Preprint <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a
+            >
+          </li>
+        </ol>
+        <a class="pill" href="references.bib" download
+          >Download BibTeX <span aria-hidden="true">↓</span></a
+        >
+      </section>
+    </main>
+    <footer class="reading-width">
+      <p>
+        Research from
+        <a href="https://netsyn.princeton.edu/"
+          >NetSyn at Princeton University</a
+        >.<br />Design inspired by
+        <a href="https://shikun.io/projects/clarity">Clarity</a> by Shikun Liu.
+      </p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+import { readFile, writeFile, mkdir, cp, rm } from "node:fs/promises";
+import {
+  renderDiagram,
+  guardDiagram,
+  packetDiagram,
+} from "../assets/diagrams.js";
+let html = await readFile("index.html", "utf8");
+for (const name of ["lejit", "zoom2net", "pants", "netnomos", "reguard"]) {
+  const start = `<!-- visual:${name} -->`,
+    end = `<!-- /visual:${name} -->`;
+  html = html.replace(
+    new RegExp(`${start}[\\s\\S]*?${end}`),
+    start + renderDiagram(name, 0, false) + end,
+  );
+}
+html = html.replace(
+  /<div id="guard-visual" class="guard-visual">[\s\S]*?<\/div>/,
+  '<div id="guard-visual" class="guard-visual">' + guardDiagram() + "</div>",
+);
+html = html.replace(
+  /<!-- packets -->[\s\S]*?<!-- \/packets -->/,
+  "<!-- packets -->" + packetDiagram() + "<!-- /packets -->",
+);
+html = html.replace(
+  '<div id="rule-evidence" class="rule-evidence"></div>',
+  '<div id="rule-evidence" class="rule-evidence">' +
+    Array.from(
+      { length: 5 },
+      (_, i) =>
+        `<div class="observation covered">Sample ${i + 1}<small>${i === 1 || i === 2 ? "A" : "B"} ✓</small></div>`,
+    ).join("") +
+    "</div>",
+);
+await writeFile("index.html", html);
+await rm("dist", { recursive: true, force: true });
+await mkdir("dist", { recursive: true });
+for (const file of ["index.html", "references.bib", ".nojekyll"])
+  await cp(file, `dist/${file}`);
+await cp("assets", "dist/assets", { recursive: true });
+console.log(
+  "Built static site in dist/. Root index.html also works without a build server.",
+);
