@@ -171,16 +171,27 @@ svg {
   overflow: hidden;
 }
 .byline {
+  display: flex;
+  align-items: center;
+  gap: 18px;
   font: 14px var(--sans);
   color: var(--muted);
   margin-bottom: 30px;
 }
 .byline a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
   color: var(--ink);
 }
+.byline img {
+  display: block;
+  width: auto;
+  height: 60px;
+  flex-shrink: 0;
+}
 .byline span {
-  margin-inline: 13px;
   color: #94a1a7;
 }
 h1 {
@@ -742,6 +753,9 @@ h1 em {
   color: var(--blue);
   text-decoration: none;
 }
+.resource + .resource {
+  margin-left: 20px;
+}
 footer {
   display: flex;
   justify-content: space-between;
@@ -1189,6 +1203,17 @@ footer > a {
   }
 }
 @media (max-width: 600px) {
+  .byline {
+    gap: 16px;
+  }
+  .byline a {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .byline span {
+    align-self: flex-end;
+    line-height: 17px;
+  }
   .brand {
     gap: 7px;
     font-size: 16px;
@@ -1430,7 +1455,7 @@ footer > a {
     font-size: 11px;
   }
 }
-@media (min-width: 601px) and (max-width: 900px) {
+@media (min-width: 601px) and (max-width: 1040px) {
   .topbar > nav {
     display: none;
   }
