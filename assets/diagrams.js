@@ -1,3 +1,5 @@
+import { researchSteps, researchRenderers } from "./research-diagrams.js";
+
 const C = {
   ink: "#263238",
   muted: "#59686e",
@@ -1320,6 +1322,7 @@ export function guardDiagram(name = "pensieve", on = true, compact = false) {
 }
 
 export const steps = {
+  ...researchSteps,
   lejit: [
     { label: "Propose", text: "The LLM proposes candidate tokens." },
     {
@@ -1408,7 +1411,7 @@ export const steps = {
     },
   ],
 };
-const renderers = { lejit, zoom2net, pants, netnomos, reguard };
+const renderers = { ...researchRenderers, lejit, zoom2net, pants, netnomos, reguard };
 export function renderDiagram(name, step = 0, compact = false) {
   return renderers[name](step, compact);
 }

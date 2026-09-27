@@ -324,6 +324,55 @@ document.addEventListener("visibilitychange", () => {
   if (document.hidden) controllers.forEach((controller) => controller.pause());
 });
 const menu = document.querySelector(".mobile-menu");
+const paperToc = document.querySelector(".paper-toc");
+const tocRail = matchMedia("(min-width: 1440px) and (min-height: 621px)");
+const paperLinks = [...paperToc.querySelectorAll("a")];
+const paperSections = paperLinks.map((link) =>
+  document.querySelector(link.hash),
+);
+function positionPaperToc() {
+  paperToc.open = tocRail.matches;
+}
+positionPaperToc();
+tocRail.addEventListener("change", positionPaperToc);
+paperLinks.forEach((link) =>
+  link.addEventListener("click", () => {
+    if (!tocRail.matches) paperToc.open = false;
+  }),
+);
+document.addEventListener("click", (event) => {
+  if (!tocRail.matches && !paperToc.contains(event.target))
+    paperToc.open = false;
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && paperToc.open) {
+    const hadFocus = paperToc.contains(document.activeElement);
+    paperToc.open = false;
+    if (hadFocus) paperToc.querySelector("summary").focus();
+  }
+});
+let tocFrame;
+function highlightPaper() {
+  tocFrame = undefined;
+  const readingLine =
+    document.querySelector(".topbar").getBoundingClientRect().bottom + 60;
+  const active = paperSections.find((section) => {
+    const bounds = section.getBoundingClientRect();
+    return bounds.top <= readingLine && bounds.bottom > readingLine;
+  });
+  paperLinks.forEach((link) => {
+    if (active && link.hash === `#${active.id}`)
+      link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+}
+function schedulePaperHighlight() {
+  if (!tocFrame) tocFrame = requestAnimationFrame(highlightPaper);
+}
+window.addEventListener("scroll", schedulePaperHighlight, { passive: true });
+window.addEventListener("resize", schedulePaperHighlight);
+window.addEventListener("load", schedulePaperHighlight);
+highlightPaper();
 menu
   .querySelectorAll("a")
   .forEach((link) => link.addEventListener("click", () => (menu.open = false)));

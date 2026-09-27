@@ -66,7 +66,7 @@ for (let i = 0; i < 3; i++)
     100,
   );
 for (const name of Object.keys(steps))
-  for (let i = 0; i < 4; i++)
+  for (let i = 0; i < steps[name].length; i++)
     for (const compact of [false, true]) {
       const svg = renderDiagram(name, i, compact);
       assert.ok(svg.includes("<title"));

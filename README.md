@@ -24,14 +24,22 @@ The build refreshes the static diagram fallbacks in `index.html` and produces `d
 - `index.html`: manuscript-based prose, headings, paper links, and accessible fallbacks.
 - `assets/site.css`: responsive layout, typography, and animation styles.
 - `assets/diagrams.js`: original SVG renderers, explanatory stages, and small rule-checking functions.
+- `assets/research-diagrams.js`: Autogram and TypoNet diagrams, including grammar expansion, evidence filtering, and counterexample loops.
 - `assets/site.js`: playback, token selection, packet checks, clause selection, and runtime-protection controls.
-- `references.bib`: independently verified references for the five systems.
+- `references.bib`: independently verified references for the seven systems.
 - `notes/source-map.md`: the paper and slide sources behind each demonstration.
 
 All diagrams are drawn for the web. Paper figures and slide screenshots are not embedded. The demonstrations explain the research methods with small examples; they do not load research language models or reproduce benchmark evaluations. The numeric checks for token completion, timing constraints, and rule coverage run in the browser.
 
-LeJIT continuously illustrates token proposal, masking, and selection, with pause and restart controls. The other four explanations support direct step selection and playback. Packet positions animate when a timing candidate changes. Controller scenes loop their packet streams continuously; the Pensieve protection switch also adds or removes a shield around the RL controller. Diagram tooltips support hover, keyboard focus, and tap. Reduced-motion preferences replace playback with a single-step control. The article and initial diagrams remain available when JavaScript is disabled.
+LeJIT continuously illustrates token proposal, masking, and selection, with pause and restart controls. The other explanations support direct step selection and playback. Autogram and TypoNet each have two animations based on Figures 1 and 2 of their papers. Packet positions animate when a timing candidate changes. Controller scenes loop their packet streams continuously; the Pensieve protection switch also adds or removes a shield around the RL controller. Diagram tooltips support hover, keyboard focus, and tap. Reduced-motion preferences replace playback with a single-step control. The article and initial diagrams remain available when JavaScript is disabled.
 
 ## Design credit
 
 Overall design inspired by [Clarity](https://github.com/lorenmt/clarity-template) by Shikun Liu. The implementation and diagrams were written afresh after the earlier prototype was discarded.
+
+## Autogram and TypoNet sources
+
+- [Autogram paper](https://hhy.ee.princeton.edu/papers/2026_preprint_autogram.pdf), Figures 1–2 and Section 3: grammar-bounded discovery, re-induction, logical screening, data-derived tolerance, and calibration on synthetic proxies. The grammar panel is abbreviated; candidate positions and residual dots are illustrative.
+- [TypoNet paper](https://hhy.ee.princeton.edu/papers/2026_preprint_typonet.pdf), Figures 1–2 and Section 3: translation into a symbolic model, independent validation, a reusable foundation, and task specialization through emulated faults. The three-router topology and forwarding rule are simplified examples, not evaluation traces.
+- Autogram’s LLM receives metadata. Telemetry reaches the evaluator. TypoNet’s production sources are read-only; fault injection occurs in emulation. Solver answers are relative to the current symbolic model and its validation evidence.
+- An independent citation reviewer verified both new titles, author lists, identifiers, and July 24, 2026 submission dates against arXiv and the PDFs. Autogram’s HotNets 2026 status follows the author’s instruction. The resource list retains venue-date ordering and dates TypoNet by its preprint release.

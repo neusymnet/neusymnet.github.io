@@ -1,11 +1,12 @@
 import { readFile, writeFile, mkdir, cp, rm } from "node:fs/promises";
 import {
   renderDiagram,
+  steps,
   guardDiagram,
   packetDiagram,
 } from "../assets/diagrams.js";
 let html = await readFile("index.html", "utf8");
-for (const name of ["lejit", "zoom2net", "pants", "netnomos", "reguard"]) {
+for (const name of Object.keys(steps)) {
   const start = `<!-- visual:${name} -->`,
     end = `<!-- /visual:${name} -->`;
   html = html.replace(

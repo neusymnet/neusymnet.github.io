@@ -165,6 +165,80 @@ svg {
 .mobile-menu {
   display: none;
 }
+.paper-toc {
+  position: fixed;
+  z-index: 12;
+  top: 50%;
+  right: max(20px, calc((100vw - 1440px) / 2 + 20px));
+  transform: translateY(-50%);
+  width: 148px;
+  padding: 14px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fffffff5;
+  box-shadow: 0 4px 20px #2632380a;
+  backdrop-filter: blur(12px);
+  font: 13px/1.5 var(--sans);
+}
+.paper-toc summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--muted);
+}
+.paper-toc summary::-webkit-details-marker {
+  display: none;
+}
+.paper-toc summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+.paper-toc[open] summary::after {
+  transform: rotate(225deg);
+}
+.paper-toc nav {
+  display: grid;
+  gap: 2px;
+  margin-top: 12px;
+}
+.paper-toc a {
+  padding: 7px 10px;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+  color: var(--muted);
+}
+.paper-toc a:hover {
+  color: var(--ink);
+  background: var(--wash);
+}
+.paper-toc a[aria-current] {
+  color: var(--orange);
+  border-color: var(--orange);
+  background: var(--orange-soft);
+  font-weight: 600;
+}
+@media (max-width: 1439px), (max-height: 620px) {
+  .paper-toc {
+    top: auto;
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    transform: none;
+    width: 174px;
+    max-height: calc(100dvh - 100px);
+    overflow-y: auto;
+    box-shadow: 0 5px 25px #2632381a;
+  }
+}
+@media print {
+  .paper-toc { display: none; }
+}
 .masthead {
   background: #e8eef0;
   padding-top: 88px;
@@ -1533,4 +1607,33 @@ footer > a {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+
+/* Evidence moves through the new research diagrams. */
+.research-traveler {
+  offset-distance: 35%;
+  animation: evidence-travel 2.8s linear infinite;
+  animation-delay: var(--travel-delay, 0s);
+}
+.research-flow {
+  animation: flow 1.8s linear infinite;
+}
+.research-scan {
+  animation: grammar-scan 3s ease-in-out infinite alternate;
+}
+.research-demo:not(.is-playing) .research-traveler,
+.research-demo:not(.is-playing) .research-flow,
+.research-demo:not(.is-playing) .research-scan {
+  animation-play-state: paused;
+}
+@keyframes evidence-travel {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+@keyframes grammar-scan {
+  to { transform: translateX(var(--scan-width)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .research-traveler { offset-distance: 45%; }
 }
