@@ -1,0 +1,45 @@
+name: Suggest a paper
+description: Propose work from any research group for the community reading list.
+title: "[Paper] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We welcome published papers and public preprints that connect learning with explicit domain knowledge, constraints, or symbolic reasoning for networking. Repository maintainers review suggestions for relevance and citation accuracy before adding them to the website. Search existing issues first to avoid duplicates.
+  - type: input
+    id: title
+    attributes:
+      label: Paper title
+    validations:
+      required: true
+  - type: input
+    id: authors
+    attributes:
+      label: Authors
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Paper link
+      description: Prefer a DOI, publisher page, arXiv page, or public author-hosted paper.
+    validations:
+      required: true
+  - type: input
+    id: publication
+    attributes:
+      label: Venue or preprint status and year
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: How does this relate to neurosymbolic networking?
+      description: Briefly describe the networking problem and the role of explicit knowledge or reasoning.
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: Additional resources
+      description: Optional code, data, talk, or BibTeX links. You may suggest your own work.

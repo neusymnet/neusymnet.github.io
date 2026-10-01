@@ -326,7 +326,7 @@ document.addEventListener("visibilitychange", () => {
 const menu = document.querySelector(".mobile-menu");
 const paperToc = document.querySelector(".paper-toc");
 const masthead = document.querySelector(".masthead");
-const tocRail = matchMedia("(min-width: 1440px) and (min-height: 621px)");
+const tocRail = matchMedia("(min-width: 1800px) and (min-height: 741px)");
 const paperLinks = [...paperToc.querySelectorAll("a")];
 const paperSections = paperLinks.map((link) =>
   document.querySelector(link.hash),
@@ -365,10 +365,10 @@ function highlightPaper() {
   );
   const readingLine =
     document.querySelector(".topbar").getBoundingClientRect().bottom + 60;
-  const active = paperSections.find((section) => {
-    const bounds = section.getBoundingClientRect();
-    return bounds.top <= readingLine && bounds.bottom > readingLine;
-  });
+  const atEnd = Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight - 2;
+  const active = atEnd ? paperSections.at(-1) : [...paperSections].reverse().find(
+    (section) => section.getBoundingClientRect().top <= readingLine,
+  );
   paperLinks.forEach((link) => {
     if (active && link.hash === `#${active.id}`)
       link.setAttribute("aria-current", "location");
@@ -403,7 +403,7 @@ if ("IntersectionObserver" in window) {
     { rootMargin: "-10% 0px -70% 0px" },
   );
   document
-    .querySelectorAll(".chapter,#papers")
+    .querySelectorAll(".chapter,#papers,#contribute")
     .forEach((section) => observer.observe(section));
 }
 

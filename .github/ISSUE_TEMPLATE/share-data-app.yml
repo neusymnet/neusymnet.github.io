@@ -1,0 +1,38 @@
+name: Share data or an application
+description: Bring a dataset, workload, or networking application to the community.
+title: "[Data / application] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us about a networking task that could benefit from learning and explicit knowledge. Submissions are public. For restricted data, share only a description and how access can be discussed; do not upload the data here.
+  - type: dropdown
+    id: contribution-type
+    attributes:
+      label: What would you like to share?
+      options:
+        - Dataset or measurements
+        - Application or deployment challenge
+        - Workload or benchmark
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the data or application
+      description: What network setting or task does it cover? What makes it useful?
+    validations:
+      required: true
+  - type: textarea
+    id: knowledge
+    attributes:
+      label: What should AI know about this setting?
+      description: Describe constraints, failure cases, or outcomes you want to improve. An open question is welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: access
+    attributes:
+      label: Links and access conditions
+      description: Link to public material, or describe restrictions and a suitable contact route. Include licensing information if available.

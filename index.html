@@ -36,6 +36,7 @@
         ><a href="#testing">Neurosymbolic Testing</a
         ><a href="#control">Neurosymbolic Control</a
         ><a href="#papers">Papers <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a>
+        <a href="#contribute">Contribute</a>
       </nav>
       <details class="mobile-menu">
         <summary>Contents</summary>
@@ -44,19 +45,32 @@
           ><a href="#testing">Neurosymbolic Testing</a
           ><a href="#control">Neurosymbolic Control</a
           ><a href="#papers">Papers &amp; resources</a>
+          <a href="#contribute">Contribute</a>
         </nav>
       </details>
     </header>
     <details class="paper-toc" open>
-      <summary>On this page</summary>
-      <nav aria-label="Paper navigation">
-        <a href="#lejit">LeJIT</a>
-        <a href="#zoom2net">Zoom2Net</a>
-        <a href="#autogram">Autogram</a>
-        <a href="#pants">PANTS</a>
-        <a href="#netnomos">NetNomos</a>
-        <a href="#reguard">ReGuard</a>
-        <a href="#typonet">TypoNet</a>
+      <summary><span><span class="toc-kicker">Explore</span><span class="toc-title">On this page</span></span></summary>
+      <nav aria-label="Page guide">
+        <a class="toc-section" href="#background">Background</a>
+        <div class="toc-group">
+          <a class="toc-section" href="#generation"><span class="toc-number">01</span> Generation</a>
+          <div class="toc-studies"><a href="#lejit">LeJIT</a><a href="#zoom2net">Zoom2Net</a></div>
+        </div>
+        <div class="toc-group">
+          <a class="toc-section" href="#testing"><span class="toc-number">02</span> Testing</a>
+          <div class="toc-studies"><a href="#autogram">Autogram</a><a href="#pants">PANTS</a></div>
+        </div>
+        <div class="toc-group">
+          <a class="toc-section" href="#control"><span class="toc-number">03</span> Control</a>
+          <div class="toc-studies"><a href="#netnomos">NetNomos</a><a href="#reguard">ReGuard</a><a href="#typonet">TypoNet</a></div>
+        </div>
+        <div class="toc-resources">
+          <a class="toc-section" href="#agenda">Research agenda</a>
+          <a class="toc-section" href="#papers">Papers &amp; resources</a>
+          <a class="toc-section" href="#contribute">Contribute &amp; collaborate</a>
+          <a href="#community-papers">Community reading list</a>
+        </div>
       </nav>
     </details>
     <main id="main">
@@ -656,8 +670,9 @@
         <p class="section-marker">Further reading</p>
         <h2 id="papers-title">Papers &amp; resources</h2>
         <p>
-          The papers provide the full methods and experimental results behind
-          the demonstrations.
+          The papers behind the demos provide the full methods and experimental
+          results. For related work from other groups, see the
+          <a href="#community-papers">community reading list</a>.
         </p>
         <ol class="paper-list">
           <li>
@@ -756,6 +771,36 @@
         <a class="pill" href="references.bib" download
           >Download BibTeX <span aria-hidden="true">↓</span></a
         >
+      </section>
+
+      <section class="contribute reading-width" id="contribute" aria-labelledby="contribute-title">
+        <p class="section-marker">Join the conversation</p>
+        <h2 id="contribute-title">Help shape neurosymbolic networking</h2>
+        <p class="intro">Have network data, an application that needs better guarantees, or a question current methods cannot answer? Share it with the community.</p>
+        <div class="contribute-grid">
+          <article>
+            <h3>Share data or an application</h3>
+            <p>Bring a dataset, workload, or deployment challenge. Tell us what the network does and what AI needs to get right.</p>
+            <a class="pill" href="https://github.com/neusymnet/neusymnet.github.io/issues/new?template=share-data-app.yml">Share a use case <span aria-hidden="true">↗</span></a>
+          </article>
+          <article>
+            <h3>Bring a question</h3>
+            <p>Point out a failure case, a missing constraint, or a research question. Concrete examples help connect ideas to practical problems.</p>
+            <a class="pill" href="https://github.com/neusymnet/neusymnet.github.io/issues/new?template=research-question.yml">Start a discussion <span aria-hidden="true">↗</span></a>
+          </article>
+          <article>
+            <h3>Suggest a paper</h3>
+            <p>Help broaden the reading list with relevant work from any research group. Published papers and public preprints are welcome.</p>
+            <a class="pill" href="https://github.com/neusymnet/neusymnet.github.io/issues/new?template=suggest-paper.yml">Suggest a paper <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <p class="contribute-note">Submissions open as public GitHub issues and require a GitHub account. For restricted data, share a description and a contact route rather than uploading the data.</p>
+        <div class="community-papers" id="community-papers">
+          <h3>Community reading list</h3>
+          <p>We are collecting work that combines learning with explicit domain knowledge, constraints, or symbolic reasoning for networking. Contributions from all research groups are welcome, including your own work.</p>
+          <p>The list is open for its first suggestions. Repository maintainers review submissions for relevance and citation accuracy before adding papers here.</p>
+          <a class="resource" href="https://github.com/neusymnet/neusymnet.github.io/issues?q=is%3Aissue%20%22%5BPaper%5D%22%20in%3Atitle">Browse paper suggestions ↗</a>
+        </div>
       </section>
     </main>
     <footer class="reading-width">

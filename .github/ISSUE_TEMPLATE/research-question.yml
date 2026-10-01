@@ -1,0 +1,23 @@
+name: Bring a research question
+description: Share a networking failure case, missing constraint, or research question.
+title: "[Question] "
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: What is your question?
+      description: Describe the challenge and what you would like to understand or improve.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Network context and examples
+      description: What application, behavior, or failure motivated this? Include a small example if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Related work or supporting links
+      description: Optional papers, datasets, code, or previous discussions.
