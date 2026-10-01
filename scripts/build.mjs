@@ -1,4 +1,5 @@
 import { readFile, writeFile, mkdir, cp, rm } from "node:fs/promises";
+import { renderBackground } from "../assets/background.js";
 import {
   renderDiagram,
   steps,
@@ -6,6 +7,7 @@ import {
   packetDiagram,
 } from "../assets/diagrams.js";
 let html = await readFile("index.html", "utf8");
+html = html.replace(/<!-- background-story -->[\s\S]*?<!-- \/background-story -->/, `<!-- background-story -->${renderBackground()}<!-- /background-story -->`);
 for (const name of Object.keys(steps)) {
   const start = `<!-- visual:${name} -->`,
     end = `<!-- /visual:${name} -->`;

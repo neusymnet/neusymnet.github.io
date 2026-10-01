@@ -1786,3 +1786,98 @@ footer > a {
 @media (prefers-reduced-motion: reduce) {
   .research-traveler { offset-distance: 45%; }
 }
+
+/* Three reference scenes: benefits, failures, and domain knowledge. */
+.background-section { max-width: 1280px; width: calc(100% - 80px); }
+.background-section > p, .background-section > h2 { max-width: 800px; margin-inline: auto; }
+.background-story { margin-block: 36px; padding: 28px; border-radius: 14px; background: #f0f4f4; color: var(--ink); border: 1px solid var(--line); }
+.bg-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.bg-stages { display: flex; gap: 8px; flex-wrap: wrap; }
+.bg-controls button, .bg-cases button { font: 14px/1.4 var(--sans); padding: 11px 14px; border: 1px solid #bac9cf; border-radius: 7px; color: var(--muted); background: transparent; }
+.bg-stages button span { color: var(--muted); margin-right: 5px; }
+.bg-controls button[aria-pressed="true"], .bg-cases button[aria-pressed="true"] { background: #327762; color: #ffffff; border-color: #327762; }
+.bg-stages button[aria-pressed="true"] span { color: #ffffff; }
+.bg-controls button:hover, .bg-cases button:hover { border-color: #327762; }
+.background-story button:focus-visible { outline: 3px solid #327762; outline-offset: 3px; }
+.bg-play { flex-shrink: 0; min-width: 94px; }
+.bg-narration { font: 500 clamp(23px, 2.4vw, 32px)/1.4 var(--sans); color: #327762; min-height: 90px; margin-block: 30px 24px; }
+.bg-panels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.bg-panel { border: 1px solid var(--line); background: #ffffff; border-radius: 12px; overflow: hidden; min-width: 0; }
+.bg-panel h3 { display: flex; align-items: center; font: 650 clamp(19px, 1.9vw, 25px)/1.25 var(--sans); background: #dcece8; color: #285c58; letter-spacing: 0; padding: 18px 20px; min-height: 94px; }
+.bg-panel-body { padding: 22px 20px 25px; }
+.bg-panel .bg-note { font: 500 18px/1.45 var(--sans); min-height: 136px; margin: 0; transition: color .5s ease; }
+.bg-panel svg { margin-block: 0 30px; overflow: visible; }
+.bg-panel svg text { font: 15px var(--sans); fill: var(--muted); }
+.bg-panel .bg-outcome { font: 17px/1.5 var(--sans); min-height: 156px; padding-top: 20px; margin: 0; color: var(--ink); white-space: pre-line; transition: color .5s ease; }
+.bg-disclaimer { font: 13px/1.6 var(--sans); color: var(--muted); margin-top: 22px; }
+.bg-bar { transition: y 1s ease, height 1s ease, fill .6s ease; }
+.bg-rate-good, .bg-rate-bad, .bg-bbr { fill: none; stroke: #327762; stroke-width: 3; transition: opacity 1s ease; }
+.bg-rate-bad { stroke: #b65343; opacity: 0; }
+.bg-bbr { stroke: #81939d; stroke-dasharray: 5 4; stroke-width: 2.5; opacity: 0; }
+.bg-gap, .bg-legend, .bg-perturb, .bg-impossible-label, .bg-web-label { opacity: 0; transition: opacity .8s ease; }
+.bg-track-label, .bg-coarse-label, .bg-video-label { transition: opacity .8s ease; }
+.bg-panel svg .bg-impossible-label { fill: #b65343; }
+.bg-panel svg .bg-video-label text, .bg-panel svg .bg-web-label text { fill: var(--ink); font-weight: 700; font-size: 18px; }
+.bg-packet { transition: transform 1s ease, fill .6s ease; }
+.background-story:not([data-bg-stage="0"]) .bg-rate-good,
+.background-story:not([data-bg-stage="0"]) .bg-coarse-label,
+.background-story:not([data-bg-stage="0"]) .bg-track-label,
+.background-story:not([data-bg-stage="0"]) .bg-video-label { opacity: 0; }
+.background-story:not([data-bg-stage="0"]) .bg-rate-bad,
+.background-story:not([data-bg-stage="0"]) .bg-bbr,
+.background-story:not([data-bg-stage="0"]) .bg-gap,
+.background-story:not([data-bg-stage="0"]) .bg-legend,
+.background-story:not([data-bg-stage="0"]) .bg-perturb,
+.background-story:not([data-bg-stage="0"]) .bg-impossible-label,
+.background-story:not([data-bg-stage="0"]) .bg-web-label { opacity: 1; }
+.background-story:not([data-bg-stage="0"]) .bg-packet-shift { transform: translateX(13px); fill: #b65343; }
+.background-story:not([data-bg-stage="0"]) .bg-note { color: #b65343; }
+[data-bg-stage="1"] .bg-outcome { color: var(--muted); }
+[data-bg-stage="2"] .bg-outcome { color: #327762; font-size: 19px; }
+.bg-enforced, .bg-rate-protected { opacity: 0; transition: opacity 1s ease; }
+.bg-rate-protected { fill: none; stroke: #327762; stroke-width: 3; }
+.bg-panel svg .bg-enforced text { fill: #327762; }
+.background-story[data-bg-stage="2"] .bg-note { color: #327762; }
+.background-story[data-bg-stage="2"] .bg-enforced,
+.background-story[data-bg-stage="2"] .bg-rate-protected,
+.background-story[data-bg-stage="2"] .bg-video-label { opacity: 1; }
+.background-story[data-bg-stage="2"] .bg-web-label,
+.background-story[data-bg-stage="2"] .bg-impossible-label,
+.background-story[data-bg-stage="2"] .bg-legend,
+.background-story[data-bg-stage="2"] .bg-gap,
+.background-story[data-bg-stage="2"] .bg-bbr { opacity: 0; }
+.background-story[data-bg-stage="2"] .bg-rate-bad { opacity: .35; stroke-dasharray: 4 4; }
+.background-story[data-bg-stage="2"] .bg-packet-shift { fill: #327762; }
+.background-story[data-bg-stage="2"] .bg-perturb { stroke: #327762; }
+.bg-panel svg .bg-video-label rect { fill: #e3f0e9; }
+.bg-panel svg .bg-web-label rect { fill: #fae8e3; }
+.bg-panel svg .bg-video-label text { fill: #285c48; }
+.bg-panel svg .bg-web-label text { fill: #a04737; }
+.bg-cases { display: none; }
+@media (max-width: 900px) {
+  .background-section { width: calc(100% - 40px); }
+  .background-story { padding: 18px; }
+  .bg-controls { align-items: stretch; }
+  .bg-stages { flex-direction: column; flex: 1; }
+  .bg-stages button { text-align: left; }
+  .bg-play { align-self: center; }
+  .bg-cases { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .bg-cases button { flex: 1; padding: 9px; font-size: 13px; }
+  .bg-panels { grid-template-columns: 1fr; }
+  .is-enhanced .bg-panel { display: none; }
+  [data-bg-case="0"].is-enhanced [data-bg-panel="0"],
+  [data-bg-case="1"].is-enhanced [data-bg-panel="1"],
+  [data-bg-case="2"].is-enhanced [data-bg-panel="2"] { display: block; }
+  .bg-panel h3 { min-height: 0; font-size: 23px; }
+  .bg-panel .bg-note { min-height: 106px; }
+  .bg-panel svg { max-width: 480px; margin-inline: auto; }
+  .bg-panel .bg-outcome { min-height: 132px; }
+  .bg-narration { min-height: 130px; font-size: 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .background-story * { transition: none !important; }
+}
+@media print {
+  .bg-controls, .bg-cases { display: none !important; }
+  .background-story .bg-panel { display: block !important; break-inside: avoid; }
+}
