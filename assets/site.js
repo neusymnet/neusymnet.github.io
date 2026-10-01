@@ -325,6 +325,7 @@ document.addEventListener("visibilitychange", () => {
 });
 const menu = document.querySelector(".mobile-menu");
 const paperToc = document.querySelector(".paper-toc");
+const masthead = document.querySelector(".masthead");
 const tocRail = matchMedia("(min-width: 1440px) and (min-height: 621px)");
 const paperLinks = [...paperToc.querySelectorAll("a")];
 const paperSections = paperLinks.map((link) =>
@@ -354,6 +355,14 @@ document.addEventListener("keydown", (event) => {
 let tocFrame;
 function highlightPaper() {
   tocFrame = undefined;
+  const tocBounds = paperToc.getBoundingClientRect();
+  const heroBounds = masthead.getBoundingClientRect();
+  const tocMidpoint = tocBounds.top + tocBounds.height / 2;
+  const fadeHeight = parseFloat(getComputedStyle(masthead, "::after").height) || 0;
+  paperToc.classList.toggle(
+    "is-over-hero",
+    tocMidpoint >= heroBounds.top && tocMidpoint < heroBounds.bottom - fadeHeight / 2,
+  );
   const readingLine =
     document.querySelector(".topbar").getBoundingClientRect().bottom + 60;
   const active = paperSections.find((section) => {
@@ -372,6 +381,7 @@ function schedulePaperHighlight() {
 window.addEventListener("scroll", schedulePaperHighlight, { passive: true });
 window.addEventListener("resize", schedulePaperHighlight);
 window.addEventListener("load", schedulePaperHighlight);
+paperToc.addEventListener("toggle", schedulePaperHighlight);
 highlightPaper();
 menu
   .querySelectorAll("a")
