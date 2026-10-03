@@ -40,7 +40,7 @@ Overall design inspired by [Clarity](https://github.com/lorenmt/clarity-template
 
 ## Autogram and TypoNet sources
 
-- [Autogram paper](https://hhy.ee.princeton.edu/papers/2026_preprint_autogram.pdf), Figures 1–2 and Section 3: grammar-bounded discovery, re-induction, logical screening, data-derived tolerance, and calibration on synthetic proxies. The grammar panel is abbreviated; candidate positions and residual dots are illustrative.
+- [Autogram paper](https://hhy.ee.princeton.edu/papers/2026_hotnets_autogram.pdf), Figures 1–2 and Section 3: grammar-bounded discovery, re-induction, logical screening, data-derived tolerance, and calibration on synthetic proxies. The grammar panel is abbreviated; candidate positions and residual dots are illustrative.
 - [TypoNet paper](https://hhy.ee.princeton.edu/papers/2026_preprint_typonet.pdf), Figures 1–2 and Section 3: translation into a symbolic model, independent validation, a reusable foundation, and task specialization through emulated faults. The three-router topology and forwarding rule are simplified examples, not evaluation traces.
 - Autogram’s LLM receives metadata. Telemetry reaches the evaluator. TypoNet’s production sources are read-only; fault injection occurs in emulation. Solver answers are relative to the current symbolic model and its validation evidence.
 - An independent citation reviewer verified both new titles, author lists, identifiers, and July 24, 2026 submission dates against arXiv and the PDFs. Autogram’s HotNets 2026 status follows the author’s instruction. The resource list retains venue-date ordering and dates TypoNet by its preprint release.
