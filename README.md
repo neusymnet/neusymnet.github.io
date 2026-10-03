@@ -55,4 +55,8 @@ For data or application proposals, acknowledge the task and discuss access condi
 
 ## Discover, codify, enforce
 
-The masthead introduces the three-stage knowledge cycle. The Background overview maps the same stages to generation, control, and testing, following slide 18 of the supplied `v7.pdf` deck. The three introductory slides autoplay in a loop while their diagrams are visible. Readers can pause or select a slide; a manual pause persists after scrolling away and back. Reduced-motion preferences keep the slides under manual control.
+The masthead presents discover, codify, and enforce as the common methodology. A dedicated section maps these stages to generation, control, and testing, following slide 18 of the supplied `v7.pdf` deck. The introductory animations follow the masthead without a separate Background heading or introduction.
+
+The three introductory slides autoplay every 3.5 seconds while their diagrams are visible. Research demonstrations advance every 2.4 seconds, and LeJIT illustrates a token choice every 1.7 seconds. Readers can pause or select a slide; a manual pause persists after scrolling away and back. Reduced-motion preferences keep the slides under manual control.
+
+The decorative hero artwork combines formal logic with statistical learning. The built-in image-generation tool created `assets/hero-logic-brain.png` from the supplied visual reference; its prompt is saved in `assets/hero-logic-brain.prompt.txt`. A dark overlay preserves text contrast.

@@ -52,7 +52,7 @@
     <details class="paper-toc" open>
       <summary><span><span class="toc-kicker">Explore</span><span class="toc-title">On this page</span></span></summary>
       <nav aria-label="Page guide">
-        <a class="toc-section" href="#background">Background</a>
+        <a class="toc-section" href="#examples">Examples</a>
         <a class="toc-section" href="#knowledge-cycle">Discover, codify, enforce</a>
         <div class="toc-group">
           <a class="toc-section" href="#generation"><span class="toc-number">01</span> Generation</a>
@@ -76,6 +76,9 @@
     </details>
     <main id="main">
       <section class="masthead" id="top">
+        <div class="hero-backdrop" aria-hidden="true">
+          <img src="assets/hero-logic-brain.png" alt="" width="1672" height="941" fetchpriority="high" />
+        </div>
         <div class="hero-layout">
           <div class="byline" aria-label="NetΣyn at Princeton University">
             <a class="netsyn-affiliation" href="https://netsyn.princeton.edu/">
@@ -94,6 +97,7 @@
               Symbolic rules can express the physical principles and design decisions that govern networks.
               Our neurosymbolic approach combines the two.
             </p>
+            <p class="methodology-label">Our common methodology</p>
             <ol class="knowledge-path" aria-label="Three stages of neurosymbolic network management">
               <li><span class="path-number">01</span><strong>Discover</strong><span>Find useful network knowledge</span></li>
               <li><span class="path-number">02</span><strong>Codify</strong><span>Express knowledge as rules</span></li>
@@ -111,23 +115,7 @@
           ><a href="#control"><span>03</span> Logic-guided Control</a>
         </div>
       </section>
-      <section
-        class="essay reading-width background-section"
-        id="background"
-        aria-labelledby="background-title"
-      >
-        <p class="section-marker">The idea</p>
-        <h2 id="background-title">Background</h2>
-        <p class="intro">
-          Networks need both the flexibility of learning and the precision of
-          explicit rules.
-        </p>
-        <p>
-          A language model can capture complex traffic patterns and still
-          generate impossible packets. A learned controller can perform well on
-          average and still waste available capacity. Neurosymbolic network
-          management gives learned systems a layer of knowledge they can act on.
-        </p>
+      <section class="reading-width examples-section" id="examples" aria-label="Examples of neurosymbolic networking">
         <!-- background-story --><div class="background-story" data-bg-stage="0" data-bg-case="0">
     <div class="bg-controls" hidden><div class="bg-stages" role="group" aria-label="Explanation stage"><button type="button" data-bg-step="0" aria-pressed="true"><span>01</span> AI works well</button><button type="button" data-bg-step="1" aria-pressed="false"><span>02</span> A mistake appears</button><button type="button" data-bg-step="2" aria-pressed="false"><span>03</span> Add network knowledge</button></div><button class="bg-play" type="button" aria-pressed="false">Play ▷</button></div>
     <p class="bg-narration" aria-live="polite">AI promises to automate network management.</p>
@@ -139,12 +127,15 @@
     <p class="bg-disclaimer">Illustrative examples, not measured results.</p>
   </div><!-- /background-story -->
 
-        <div class="knowledge-cycle" id="knowledge-cycle" aria-labelledby="knowledge-title">
-          <h3 id="knowledge-title">Discover, codify, enforce</h3>
-          <p class="knowledge-intro">Network knowledge becomes useful when we find it, express it as rules, and apply those rules where decisions are made.</p>
+      </section>
+      <section class="knowledge-cycle reading-width" id="knowledge-cycle" aria-labelledby="knowledge-title">
+          <p class="methodology-label">One methodology, three application areas</p>
+          <h2 id="knowledge-title">Discover, codify, enforce</h2>
+          <p class="knowledge-intro">Generation, testing, and control share a common methodology.
+            We discover network knowledge, codify it as explicit rules, and enforce those rules when decisions are made.</p>
           <div class="knowledge-grid">
             <article class="knowledge-card">
-              <header><h4>Generation</h4><p>Telemetry imputation &amp; synthetic data</p></header>
+              <header><h4>Generation</h4><p>e.g., for telemetry imputation and synthetic data generation</p></header>
               <ol>
                 <li><h5><span>01</span> Discover</h5><p>Measurements, traces, and domain knowledge reveal constraints on valid network data.</p></li>
                 <li><h5><span>02</span> Codify</h5><p>Express constraints as explicit rules, learned from data or supplied by experts.</p></li>
@@ -153,7 +144,7 @@
               <footer><a href="#zoom2net">Zoom2Net</a><a href="#netnomos">NetNomos</a><a href="#lejit">LeJIT</a></footer>
             </article>
             <article class="knowledge-card">
-              <header><h4>Control</h4><p>Runtime guidance &amp; repair</p></header>
+              <header><h4>Control</h4><p>e.g., RL based network control and LLM token generation</p></header>
               <ol>
                 <li><h5><span>01</span> Discover</h5><p>Identify domain requirements and conditions where neural decisions need correction.</p></li>
                 <li><h5><span>02</span> Codify</h5><p>Express requirements and corrective behavior as rules over outputs, actions, and network state.</p></li>
@@ -162,7 +153,7 @@
               <footer><a href="#reguard">ReGuard</a><a href="#lejit">LeJIT</a></footer>
             </article>
             <article class="knowledge-card">
-              <header><h4>Testing &amp; robustification</h4><p>Realistic tests &amp; network verification</p></header>
+              <header><h4>Testing &amp; robustification</h4><p>e.g., for traffic classification, network modeling, and abstraction refinement</p></header>
               <ol>
                 <li><h5><span>01</span> Discover</h5><p>Search for realizable attacks, avoidable controller failures, and counterexamples to proposed network rules.</p></li>
                 <li><h5><span>02</span> Codify</h5><p>ReGuard learns protection rules from counterfactual comparisons. TypoNet validates a symbolic model against network evidence. PANTS encodes feasible packet changes.</p></li>
@@ -171,11 +162,6 @@
               <footer><a href="#pants">PANTS</a><a href="#typonet">TypoNet</a><a href="#reguard">ReGuard</a></footer>
             </article>
           </div>
-        </div>
-        <p class="bridge">
-          Rules can guide what AI generates, focus testing on realistic inputs,
-          and correct decisions during deployment.
-        </p>
       </section>
 
       <section

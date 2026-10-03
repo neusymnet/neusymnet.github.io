@@ -190,7 +190,7 @@ function mountBackground() {
     narration.setAttribute("aria-live", running ? "off" : "polite");
     root.classList.toggle("is-playing", running);
     if (running)
-      timer = setInterval(() => render((current + 1) % stages.length), 6500);
+      timer = setInterval(() => render((current + 1) % stages.length), 3500);
   }
   root.querySelectorAll("[data-bg-step]").forEach((button) =>
     button.addEventListener("click", () => {

@@ -44,12 +44,12 @@ function renderVisual(container, markup) {
           { transform: `translateX(${beforeX}px)` },
           { transform: `translateX(${afterX}px)` },
         ],
-        { duration: 850, easing: "cubic-bezier(.25,.7,.2,1)" },
+        { duration: 550, easing: "cubic-bezier(.25,.7,.2,1)" },
       );
     } else {
       el.animate(
         [{ d: `path("${before}")` }, { d: `path("${el.getAttribute("d")}")` }],
-        { duration: 900, easing: "ease-in-out" },
+        { duration: 550, easing: "ease-in-out" },
       );
     }
   }
@@ -120,7 +120,7 @@ for (const figure of document.querySelectorAll("[data-demo]")) {
     timer = setInterval(() => {
       if (current < steps[name].length - 1) render(current + 1);
       else pause();
-    }, 3400);
+    }, 2400);
   });
   figure.querySelector("[data-reset]").addEventListener("click", () => {
     pause();
@@ -136,7 +136,7 @@ for (const figure of document.querySelectorAll("[data-demo]")) {
 const liveFigure = document.querySelector("[data-live-demo=lejit]");
 const liveVisual = liveFigure.querySelector("[data-visual]");
 const livePlay = liveFigure.querySelector("[data-lejit-play]");
-const tokenCadence = 2200;
+const tokenCadence = 1700;
 let tokenCursor = 0,
   tokenClock,
   liveRunning = !reducedMotion.matches;
