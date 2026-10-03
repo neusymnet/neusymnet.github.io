@@ -4,3 +4,5 @@
 - `princeton.svg`: the user-selected [Princeton shield](https://en.wikipedia.org/wiki/File:Princeton_seal.svg), downloaded from [Wikimedia Commons](https://upload.wikimedia.org/wikipedia/commons/d/d0/Princeton_seal.svg).
 
 Both SVG files are preserved without modification.
+
+- `princeton.png`: the replacement shield image supplied by Hongyu Hè in the chat, used in the masthead without modification. The earlier SVG is retained.

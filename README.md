@@ -25,6 +25,7 @@ The build refreshes the static diagram fallbacks in `index.html` and produces `d
 - `assets/site.css`: responsive layout, typography, and animation styles.
 - `assets/diagrams.js`: original SVG renderers, explanatory stages, and small rule-checking functions.
 - `assets/research-diagrams.js`: Autogram and TypoNet diagrams, including grammar expansion, evidence filtering, and counterexample loops.
+- `assets/background.js`: the three introductory slides, which cycle automatically while visible.
 - `assets/site.js`: playback, token selection, packet checks, clause selection, and runtime-protection controls.
 - `references.bib`: independently verified references for the seven systems.
 - `notes/source-map.md`: the paper and slide sources behind each demonstration.
@@ -51,3 +52,7 @@ The Contribute section links to public GitHub issue forms in `.github/ISSUE_TEMP
 Repository maintainers review paper suggestions for a clear connection between networking, learning, and explicit knowledge or reasoning. Published papers and public preprints from any group are eligible; authors may suggest their own work. Check for duplicates and verify title, authors, publication status, year, and the primary paper link. Add accepted entries to `#community-papers` in `index.html` with a concise relevance note and citation link; replace the initial empty-list message when the first entry is added. Keep papers behind the existing demos in their current list. Link to the website change when closing an accepted issue, or explain the scope decision for other submissions. Submissions are not published automatically.
 
 For data or application proposals, acknowledge the task and discuss access conditions before requesting data. Questions can remain open for discussion or link to related work. No automated response or review turnaround is promised.
+
+## Discover, codify, enforce
+
+The masthead introduces the three-stage knowledge cycle. The Background overview maps the same stages to generation, control, and testing, following slide 18 of the supplied `v7.pdf` deck. The three introductory slides autoplay in a loop while their diagrams are visible. Readers can pause or select a slide; a manual pause persists after scrolling away and back. Reduced-motion preferences keep the slides under manual control.
