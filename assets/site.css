@@ -1857,6 +1857,11 @@ footer > a {
 .contribute-grid .pill:hover { background: var(--green-soft); }
 .contribute .contribute-note { margin-top: 22px; color: var(--muted); font: 14px/1.6 var(--sans); }
 .community-papers > p { max-width: 800px; }
+.people { max-width: 1120px; padding-block: 70px 90px; border-top: 1px solid var(--line); }
+.people-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 20px; margin: 32px 0 0; padding: 0; list-style: none; text-align: center; }
+.people-grid img { display: block; width: 100%; max-width: 160px; height: auto; aspect-ratio: 1; margin: 0 auto 16px; object-fit: cover; border-radius: 50%; border: 1px solid var(--line); }
+.people-grid h3 { font-size: 19px; }
+.people-grid a { display: inline-block; margin-top: 6px; color: var(--blue); font: 13px/1.5 var(--sans); overflow-wrap: anywhere; }
 @media (min-width: 601px) and (max-width: 1100px) {
   .topbar { flex-wrap: wrap; gap: 12px; }
   .topbar > nav { flex-basis: 100%; justify-content: space-between; gap: 12px; font-size: 13px; flex-wrap: wrap; }
@@ -1864,6 +1869,8 @@ footer > a {
 @media (max-width: 800px) {
   .contribute-grid { grid-template-columns: 1fr; }
   .contribute { padding-block: 48px 64px; }
+  .people { padding-block: 48px 64px; }
+  .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 
