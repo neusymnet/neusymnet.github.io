@@ -27,10 +27,12 @@ The build refreshes the static diagram fallbacks in `index.html` and produces `d
 - `assets/research-diagrams.js`: Autogram and TypoNet diagrams, including grammar expansion, evidence filtering, and counterexample loops.
 - `assets/background.js`: the three introductory slides, which cycle automatically while visible.
 - `assets/site.js`: playback, token selection, packet checks, clause selection, and runtime-protection controls.
-- `references.bib`: independently verified references for the seven systems and the community reading list.
+- `references.bib`: independently verified references for the research papers and the community reading list.
 - `notes/source-map.md`: the paper and slide sources behind each demonstration.
 
 All diagrams are drawn for the web. Paper figures and slide screenshots are not embedded. The demonstrations explain the research methods with small examples; they do not load research language models or reproduce benchmark evaluations. The numeric checks for token completion, timing constraints, and rule coverage run in the browser.
+
+The Testing chapter also includes “No Hyperscaler? No Problem. Your Students also Break (and Fix) Networks.” A four-stage walkthrough redraws Figure 1: two student sessions, name resolution, action abstraction, and template matching. The final view aligns the unordered setup commands while preserving the successful probe as an anchor. Playback, direct step selection, command tooltips, and a stacked mobile layout use the existing diagram controls. The paper is linked in Papers & resources with its full author list.
 
 LeJIT continuously illustrates token proposal, masking, and selection, with pause and restart controls. The other explanations support direct step selection and playback. Autogram and TypoNet each have two animations based on Figures 1 and 2 of their papers. Packet positions animate when a timing candidate changes. Controller scenes loop their packet streams continuously; the Pensieve protection switch also adds or removes a shield around the RL controller. Diagram tooltips support hover, keyboard focus, and tap. Reduced-motion preferences replace playback with a single-step control. The article and initial diagrams remain available when JavaScript is disabled.
 

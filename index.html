@@ -60,19 +60,16 @@
         </div>
         <div class="toc-group">
           <a class="toc-section" href="#testing"><span class="toc-number">02</span> Testing</a>
-          <div class="toc-studies"><a href="#autogram">Autogram</a><a href="#pants">PANTS</a></div>
+          <div class="toc-studies"><a href="#autogram">Autogram</a><a href="#pants">PANTS</a><a href="#student-debugging">No Hyperscaler?</a></div>
         </div>
         <div class="toc-group">
           <a class="toc-section" href="#control"><span class="toc-number">03</span> Control</a>
           <div class="toc-studies"><a href="#netnomos">NetNomos</a><a href="#reguard">ReGuard</a><a href="#typonet">TypoNet</a></div>
         </div>
         <div class="toc-resources">
-          <a class="toc-section" href="#agenda">Research agenda</a>
           <a class="toc-section" href="#papers">Papers &amp; resources</a>
           <a class="toc-section" href="#community-papers">Community reading list</a>
-          <a class="toc-section" href="#contribute">Contribute &amp; collaborate</a>
           <a class="toc-section" href="#people">People</a>
-          <a class="toc-section" href="#research-support">Research Support</a>
         </div>
       </nav>
     </details>
@@ -420,6 +417,31 @@
             </p>
           </div>
         </article>
+        <article class="study" id="student-debugging" aria-labelledby="student-debugging-title">
+          <div class="reading-width study-intro">
+            <h3 id="student-debugging-title"><strong>No Hyperscaler? No Problem.</strong> Your Students also Break (and Fix) Networks</h3>
+            <p>
+              Student debugging sessions provide realistic tests for AI network operators.
+              The mini-Internet records how students configure networks, encounter faults, and repair them.
+              Commands are abstracted into symbolic actions and matched against templates to reveal recurring diagnostic patterns.
+              Replaying the faults creates benchmarks for AI diagnosis, while runbooks derived from the patterns guide AI agents toward a fix.
+            </p>
+            <a class="paper-link" href="https://hhy.ee.princeton.edu/papers/2026_hotnets_students.pdf">Read the paper · HotNets 2026&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a>
+          </div>
+          <figure class="interactive research-demo" data-demo="student-patterns">
+            <div class="demo-top">
+              <p>Different commands reveal the same procedure</p>
+              <div class="player" hidden>
+                <button type="button" data-play aria-label="Play student command abstraction">Play ▷</button>
+                <button type="button" data-reset aria-label="Restart student command abstraction">↺</button>
+              </div>
+            </div>
+            <div class="visual" data-visual="student-patterns"><!-- visual:student-patterns --><svg class="research-scene" viewBox="0 0 760 640" role="group" aria-labelledby="student-patterns-title"><title id="student-patterns-title">Two students configure equivalent hosts with different addresses, command spellings, and operation orders. Both finish with a successful ping.</title><defs><marker id="student-patterns-muted-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#59686e"/></marker><marker id="student-patterns-orange-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#ad5736"/></marker><marker id="student-patterns-blue-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#526b98"/></marker><marker id="student-patterns-green-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#327762"/></marker><marker id="student-patterns-red-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#af4c4c"/></marker></defs><text class="diagram-text ink" x="380" y="30" text-anchor="middle" font-size="25"><tspan x="380" dy="0">Two students configure a host</tspan></text><g transform="translate(20 55)" ><rect x="0" y="0" width="350" height="355" rx="10" fill="#fff" stroke="#526b98" stroke-width="1.5"/><text class="diagram-text blue" x="20" y="29" text-anchor="start" font-size="20"><tspan x="20" dy="0">Student A</tspan></text><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="Command sequence adapted from Figure 1." aria-label="Command sequence adapted from Figure 1."><rect x="20" y="68" width="310" height="44" rx="6" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text muted" x="32" y="84" text-anchor="start" font-size="15"><tspan x="32" dy="0">ip addr add 55.200.0.1/24</tspan><tspan x="32" dy="20.25">dev 55-S2</tspan></text></g></g><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="Command sequence adapted from Figure 1." aria-label="Command sequence adapted from Figure 1."><rect x="20" y="121" width="310" height="44" rx="6" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text muted" x="32" y="137" text-anchor="start" font-size="15"><tspan x="32" dy="0">ip route add default</tspan><tspan x="32" dy="20.25">via 55.102.0.2</tspan></text></g></g><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="Command sequence adapted from Figure 1." aria-label="Command sequence adapted from Figure 1."><rect x="20" y="174" width="310" height="44" rx="6" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text muted" x="32" y="201" text-anchor="start" font-size="15"><tspan x="32" dy="0">ip addr show</tspan></text></g></g><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="Command sequence adapted from Figure 1." aria-label="Command sequence adapted from Figure 1."><rect x="20" y="227" width="310" height="44" rx="6" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text muted" x="32" y="254" text-anchor="start" font-size="15"><tspan x="32" dy="0">ip r</tspan></text></g></g><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="The first successful connectivity probe anchors the preceding commands." aria-label="The first successful connectivity probe anchors the preceding commands."><rect x="20" y="280" width="310" height="44" rx="6" fill="#e3f0e9" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text green" x="32" y="307" text-anchor="start" font-size="15"><tspan x="32" dy="0">ping 55.102.0.2</tspan></text><path d="M305 301l4 5 9-11" fill="none" stroke="#327762" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></g></g></g><g transform="translate(390 55)" ><rect x="0" y="0" width="350" height="355" rx="10" fill="#fff" stroke="#ad5736" stroke-width="1.5"/><text class="diagram-text orange" x="20" y="29" text-anchor="start" font-size="20"><tspan x="20" dy="0">Student B</tspan></text><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="Command sequence adapted from Figure 1." aria-label="Command sequence adapted from Figure 1."><rect x="20" y="68" width="310" height="44" rx="6" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text muted" x="32" y="84" text-anchor="start" font-size="15"><tspan x="32" dy="0">ip address add 24.200.0.11/24</tspan><tspan x="32" dy="20.25">dev 24-S2</tspan></text></g></g><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="Command sequence adapted from Figure 1." aria-label="Command sequence adapted from Figure 1."><rect x="20" y="121" width="310" height="44" rx="6" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text muted" x="32" y="148" text-anchor="start" font-size="15"><tspan x="32" dy="0">ifconfig</tspan></text></g></g><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="Command sequence adapted from Figure 1." aria-label="Command sequence adapted from Figure 1."><rect x="20" y="174" width="310" height="44" rx="6" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text muted" x="32" y="190" text-anchor="start" font-size="15"><tspan x="32" dy="0">ip route add default</tspan><tspan x="32" dy="20.25">via 24.200.0.254</tspan></text></g></g><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="Command sequence adapted from Figure 1." aria-label="Command sequence adapted from Figure 1."><rect x="20" y="227" width="310" height="44" rx="6" fill="#e1e8f3" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text muted" x="32" y="254" text-anchor="start" font-size="15"><tspan x="32" dy="0">ip route list default</tspan></text></g></g><g class="student-command" style="--row-shift:0px"><g class="diagram-tip" tabindex="0" data-tooltip="The first successful connectivity probe anchors the preceding commands." aria-label="The first successful connectivity probe anchors the preceding commands."><rect x="20" y="280" width="310" height="44" rx="6" fill="#e3f0e9" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text green" x="32" y="307" text-anchor="start" font-size="15"><tspan x="32" dy="0">ping group24.ATLrouter</tspan></text><path d="M305 301l4 5 9-11" fill="none" stroke="#327762" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></g></g></g><path d="M195 410V426H380V445" fill="none" stroke="#526b98" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#student-patterns-blue-arrow)" /><path d="M565 410V426H380V445" fill="none" stroke="#ad5736" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#student-patterns-orange-arrow)" /><g class="diagram-enter"><rect x="20" y="445" width="720" height="172" rx="10" fill="#fff" stroke="#bac9cf" stroke-width="1.5"/><text class="diagram-text ink" x="380" y="480" text-anchor="middle" font-size="21"><tspan x="380" dy="0">Same goal: configure, inspect, connect</tspan></text><rect x="246" y="524" width="38" height="30" rx="6" fill="#e1e8f3" stroke="#526b98" stroke-width="1.5"/><path d="M254 539h22m-6-5 6 5-6 5m-10-10-6 5 6 5" fill="none" stroke="#526b98" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><text class="diagram-text blue" x="265" y="574" text-anchor="middle" font-size="16"><tspan x="265" dy="0">Host</tspan></text><path d="M290 539H470" fill="none" stroke="#327762" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#student-patterns-green-arrow)" /><rect x="476" y="524" width="38" height="30" rx="6" fill="#e3f0e9" stroke="#327762" stroke-width="1.5"/><path d="M484 539h22m-6-5 6 5-6 5m-10-10-6 5 6 5" fill="none" stroke="#327762" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><text class="diagram-text green" x="495" y="574" text-anchor="middle" font-size="16"><tspan x="495" dy="0">Gateway</tspan></text><text class="diagram-text green" x="380" y="528" text-anchor="middle" font-size="18"><tspan x="380" dy="0">ping ✓</tspan></text></g></svg><!-- /visual:student-patterns --></div>
+            <div class="step-nav" role="group" aria-label="Student command abstraction steps" hidden></div>
+            <p class="narration" data-narration aria-live="polite">Two students configure equivalent hosts through different command sequences.</p>
+            <figcaption>Figure 1, redrawn as a command-to-pattern walkthrough. The final view aligns the unordered commands for comparison; the successful probe remains the anchor. Hover or focus on commands to see their mapping.</figcaption>
+          </figure>
+        </article>
       </section>
 
       <section class="chapter" id="control" aria-labelledby="control-title">
@@ -717,6 +739,12 @@
             <a class="resource" href="https://arxiv.org/abs/2607.22944">Preprint&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a>
           </li>
           <li>
+            <div class="paper-meta">Student debugging traces · HotNets 2026</div>
+            <h3><a href="https://hhy.ee.princeton.edu/papers/2026_hotnets_students.pdf">No Hyperscaler? No Problem. Your Students also Break (and Fix) Networks&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
+            <p><strong>Constantine Doumanidis, Hongyu Hè, and Maria Apostolaki</strong></p>
+            <a class="resource" href="#student-debugging">Student debugging traces and AI testing <span aria-hidden="true">↑</span></a>
+          </li>
+          <li>
             <div class="paper-meta">TypoNet · Preprint, July 2026</div>
             <h3><a href="https://hhy.ee.princeton.edu/papers/2026_preprint_typonet.pdf">Let AI Agents Translate Networks, Not Reason About Them&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Hongyu Hè and Maria Apostolaki</strong></p>
@@ -879,23 +907,23 @@
         <ul class="people-grid">
           <li>
             <img src="assets/people/hongyu-he.jpg" width="400" height="400" alt="Hongyu Hè" loading="lazy" />
-            <h3>Hongyu Hè</h3>
-            <a href="mailto:hhy@princeton.edu">hhy@princeton.edu</a>
+            <h3><a href="https://hhy.ee.princeton.edu/">Hongyu Hè</a></h3>
+            <span class="people-email">hhy AT g.princeton.edu</span>
           </li>
           <li>
             <img src="assets/people/minhao-jin.jpg" width="373" height="373" alt="Minhao Jin" loading="lazy" />
-            <h3>Minhao Jin</h3>
-            <a href="mailto:minhaoj@princeton.edu">minhaoj@princeton.edu</a>
+            <h3><a href="https://jinminhao.github.io/">Minhao Jin</a></h3>
+            <span class="people-email">minhaoj AT princeton.edu</span>
           </li>
           <li>
             <img src="assets/people/fengchen-gong.jpg" width="400" height="400" alt="Fengchen Gong" loading="lazy" />
-            <h3>Fengchen Gong</h3>
-            <a href="mailto:fg3738@cs.princeton.edu">fg3738@cs.princeton.edu</a>
+            <h3><a href="https://gongfchen.github.io/">Fengchen Gong</a></h3>
+            <span class="people-email">fg3738 AT cs.princeton.edu</span>
           </li>
           <li>
             <img src="assets/people/maria-apostolaki.jpg" width="400" height="400" alt="Maria Apostolaki" loading="lazy" />
-            <h3>Maria Apostolaki</h3>
-            <a href="mailto:apostolaki@princeton.edu">apostolaki@princeton.edu</a>
+            <h3><a href="https://netsyn.princeton.edu/people/maria-apostolaki">Maria Apostolaki</a></h3>
+            <span class="people-email">apostolaki AT princeton.edu</span>
           </li>
         </ul>
       </section>

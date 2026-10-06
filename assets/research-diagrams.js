@@ -699,7 +699,136 @@ function typonetLoops(step, compact) {
   return frame(id, w, fy + 135, researchSteps[id][step].text, b);
 }
 
+const studentSessions = [
+  {
+    name: "Student A",
+    commands: [
+      ["ip addr add 55.200.0.1/24", "dev 55-S2"],
+      ["ip route add default", "via 55.102.0.2"],
+      ["ip addr show"],
+      ["ip r"],
+      ["ping 55.102.0.2"],
+    ],
+    normalized: [
+      "ip address add A_EUH dev S2",
+      "ip route add default via ATLrouter",
+      "ip address show",
+      "ip route show",
+      "ping ATLrouter",
+    ],
+    actions: ["Create · address", "Create · protocol", "Read · state", "Read · state", "Probe · state"],
+  },
+  {
+    name: "Student B",
+    commands: [
+      ["ip address add 24.200.0.11/24", "dev 24-S2"],
+      ["ifconfig"],
+      ["ip route add default", "via 24.200.0.254"],
+      ["ip route list default"],
+      ["ping group24.ATLrouter"],
+    ],
+    normalized: [
+      "ip address add A_EUH dev S2",
+      "ifconfig",
+      "ip route add default via ATLrouter",
+      "ip route show",
+      "ping ATLrouter",
+    ],
+    actions: ["Create · address", "Read · state", "Create · protocol", "Read · state", "Probe · state"],
+  },
+];
+
+function studentPatterns(step, compact) {
+  const id = "student-patterns";
+  const w = compact ? 520 : 760;
+  const cardWidth = compact ? 480 : 350;
+  const cardHeight = 355;
+  const bottom = compact ? 825 : 445;
+  const headings = [
+    "Two students configure a host",
+    "Local names become shared roles",
+    "Commands become symbolic actions",
+    "Both sessions match one template",
+  ];
+  let body = text(w / 2, 30, headings[step], compact ? 23 : 25);
+  studentSessions.forEach((session, student) => {
+    const x = compact ? 20 : 20 + student * 370;
+    const y = compact ? 55 + student * 380 : 55;
+    let panel = rect(0, 0, cardWidth, cardHeight, "white", student ? "orange" : "blue");
+    panel += text(20, 29, session.name, 20, student ? "orange" : "blue", "start");
+    if (step === 3) {
+      panel += tip(
+        rect(10, 43, cardWidth - 20, 232, "blueSoft", "blue", 8),
+        "The template treats setup and inspection commands as an unordered set on the same device. Display order is aligned here only to expose the match.",
+      );
+      panel += text(cardWidth - 20, 64, "Any order", 14, "blue", "end");
+    }
+    session.commands.forEach((raw, row) => {
+      const slot = step === 3 && student === 1 ? [0, 2, 1, 3, 4][row] : row;
+      const action = session.actions[row];
+      const color = row === 4 ? "green" : step >= 2 ? (action.startsWith("Create") ? "blue" : "orange") : "muted";
+      const words = step === 0 ? raw : step === 1 ? [session.normalized[row]] : [action];
+      const rowY = 78 + slot * 53;
+      let content = rect(20, rowY - 10, cardWidth - 40, 44, `${color === "muted" ? "blue" : color}Soft`, "line", 6);
+      content += text(32, rowY + (words.length > 1 ? 6 : 17), words, step >= 2 ? 20 : compact ? 18 : 15, color, "start");
+      if (row === 4) content += tick(cardWidth - 39, rowY + 11);
+      const description = step >= 2
+        ? `${raw.join(" ")} maps to (${action.replace(" · ", ", ")}).`
+        : row === 4 ? "The first successful connectivity probe anchors the preceding commands." : "Command sequence adapted from Figure 1.";
+      panel += `<g class="student-command" style="--row-shift:${(row - slot) * 53}px">${tip(content, description)}</g>`;
+    });
+    body += group(x, y, panel);
+  });
+  if (!compact) {
+    body += arrow(id, `M195 410V426H380V${bottom}`, "blue");
+    body += arrow(id, `M565 410V426H380V${bottom}`, "orange");
+  } else {
+    body += arrow(id, `M260 790V${bottom}`, "blue");
+  }
+  let result = rect(20, bottom, w - 40, 172, step === 3 ? "greenSoft" : "white", step === 3 ? "green" : "line");
+  if (step === 0) {
+    result += text(w / 2, bottom + 35, "Same goal: configure, inspect, connect", 21);
+    result += router(w / 2 - 115, bottom + 94, "Host", "blue");
+    result += arrow(id, `M${w / 2 - 90} ${bottom + 94}H${w / 2 + 90}`, "green");
+    result += router(w / 2 + 115, bottom + 94, "Gateway", "green");
+    result += text(w / 2, bottom + 83, "ping ✓", 18, "green");
+  } else if (step === 1) {
+    result += text(w / 2, bottom + 33, "Resolve names and expand shortcuts", 21);
+    result += text(w / 2 - 120, bottom + 75, ["55-S2", "24-S2"], 19, "muted");
+    result += arrow(id, `M${w / 2 - 60} ${bottom + 80}H${w / 2 + 20}`, "blue");
+    result += text(w / 2 + 92, bottom + 87, "S2", 22, "blue");
+    result += text(w / 2, bottom + 145, "ip r  →  ip route show", 20, "blue");
+  } else if (step === 2) {
+    result += text(w / 2, bottom + 33, "Different syntax, the same action", 21);
+    result += text(w / 2 - 120, bottom + 75, ["ip addr show", "ifconfig"], 18, "muted");
+    result += arrow(id, `M${w / 2 - 40} ${bottom + 80}H${w / 2 + 20}`, "orange");
+    result += text(w / 2 + 125, bottom + 87, "Read · state", 20, "orange");
+    result += text(w / 2, bottom + 145, "Names and spelling no longer hide the pattern", compact ? 17 : 19, "muted");
+  } else {
+    result += text(w / 2, bottom + 32, "One shared configuration pattern", 22, "green");
+    const left = compact ? 35 : 75;
+    result += tip(
+      rect(left, bottom + 52, compact ? 255 : 300, 68, "blueSoft", "blue") +
+      text(left + (compact ? 127 : 150), bottom + 77, ["Create address + protocol", "Read state · any order"], 18, "blue"),
+      "Figure 1 specializes a high-level template to a repeated host-configuration pattern. The inspection set contains two Read · state actions.",
+    );
+    const anchorX = compact ? 335 : 490;
+    result += arrow(id, `M${left + (compact ? 255 : 300)} ${bottom + 85}H${anchorX - 10}`, "green");
+    result += rect(anchorX, bottom + 52, compact ? 150 : 190, 68, "white", "green");
+    result += text(anchorX + (compact ? 75 : 95), bottom + 77, ["Probe succeeds", "Anchor ✓"], 18, "green");
+    result += text(w / 2, bottom + 150, "Matched episodes → reusable runbook", 20, "green");
+  }
+  body += `<g class="diagram-enter">${result}</g>`;
+  return frame(id, w, bottom + 195, researchSteps[id][step].text, body);
+}
+
 export const researchSteps = {
+  "student-patterns": [
+    { label: "Two sessions", text: "Two students configure equivalent hosts with different addresses, command spellings, and operation orders. Both finish with a successful ping." },
+    { label: "Resolve names", text: "Topology roles replace local addresses and device names. Expanding command shortcuts makes equivalent syntax comparable." },
+    { label: "Abstract actions", text: "Each command becomes an action and resource pair. Commands such as ifconfig and ip addr show map to Read · state in the figure’s abstraction." },
+    { label: "Match a template", text: "A template groups setup and inspection commands before the first successful probe. Ignoring order within that set reveals a shared configuration pattern that can become a runbook." },
+  ],
   "autogram-space": [
     {
       label: "Bound the search",
@@ -774,6 +903,7 @@ export const researchSteps = {
   ],
 };
 export const researchRenderers = {
+  "student-patterns": studentPatterns,
   "autogram-space": autogramSpace,
   "autogram-loop": autogramLoop,
   "typonet-reasoning": typonetReasoning,
