@@ -1979,3 +1979,28 @@ footer > a {
   .knowledge-cycle, .knowledge-path li { background: white; box-shadow: none; }
   .methodology-label, .knowledge-cycle > h2, .knowledge-cycle > .knowledge-intro, .knowledge-path strong, .knowledge-path span:last-child { color: var(--ink); }
 }
+
+.research-support {
+  padding-block: 48px 56px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.research-support h2 { font-size: 28px; letter-spacing: -.025em; }
+.support-logos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 32px;
+  max-width: 520px;
+  margin: 24px auto;
+}
+.support-logos a { display: flex; justify-content: center; align-items: center; min-height: 132px; padding: 8px; border-radius: 5px; }
+.support-logos img { display: block; height: auto; max-width: 100%; object-fit: contain; }
+.support-logos img[src$="nsf.png"] { width: 185px; }
+.support-logos img[src$="onr.png"] { width: 200px; }
+.research-support > p { max-width: 600px; margin-inline: auto; color: var(--muted); font-size: 16px; }
+@media (max-width: 600px) {
+  .research-support { padding-block: 36px 44px; }
+  .support-logos { gap: 16px; margin-block: 20px; }
+  .support-logos a { min-height: 100px; padding: 4px; }
+}
