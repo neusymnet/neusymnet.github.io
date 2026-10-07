@@ -126,7 +126,6 @@ export function renderBackground() {
     <p class="bg-narration" aria-live="polite">${stages[0][1]}</p>
     <div class="bg-cases" role="group" aria-label="Choose use case" hidden>${examples.map((e, i) => `<button type="button" data-bg-case-button="${i}" aria-pressed="${i === 0}">${e.name}</button>`).join("")}</div>
     <div class="bg-panels">${examples.map((e, i) => `<article class="bg-panel" data-bg-panel="${i}"><h3>${e.name}</h3><div class="bg-panel-body"><p class="bg-note">${e.notes[0]}</p>${[telemetry, control, classification][i]()}<p class="bg-outcome">${e.foot[0]}</p></div></article>`).join("")}</div>
-    <p class="bg-disclaimer">Illustrative examples, not measured results.</p>
   </div>`;
 }
 function mountBackground() {

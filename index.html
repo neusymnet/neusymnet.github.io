@@ -123,7 +123,6 @@
 + better debugging and history</p></div></article><article class="bg-panel" data-bg-panel="1"><h3>Congestion control</h3><div class="bg-panel-body"><p class="bg-note">Adapts sending rates to changing network conditions.</p><svg viewBox="0 0 330 230" role="img" aria-labelledby="bg-control-title"><title id="bg-control-title">Sage sending rate and a dashed BBR reference after a bandwidth drop. The failure example recovers slowly even after bandwidth returns.</title><path d="M9 79H109V159H181V79H321V179H9Z" fill="#e1e8ed"/><path d="M9 180H321" stroke="#a5b5bd" stroke-width="2"/><path class="bg-rate-good" d="M9 94Q39 84 108 85L115 160H181L186 86H321"/><path class="bg-rate-protected" d="M9 94Q39 84 108 87L115 174H179Q193 91 213 89H321"/><path class="bg-bbr" d="M9 94Q39 84 108 85L115 160H181L189 86H321"/><path class="bg-rate-bad" d="M9 94Q39 84 108 87L115 174Q165 174 200 166T321 143"/><path class="bg-gap" d="M253 90V155" stroke="#b65343" stroke-width="2" stroke-dasharray="3 3"/><text class="bg-track-label" x="9" y="219">tracks the available bandwidth</text><g class="bg-legend"><path d="M9 212H30" stroke="#b65343" stroke-width="3"/><text x="40" y="218">Sage</text><path d="M92 212H114" stroke="#81939d" stroke-width="3" stroke-dasharray="6 5"/><text x="124" y="218">BBR</text></g><g class="bg-enforced"><path d="M9 212H30" stroke="#327762" stroke-width="3"/><text x="39" y="218">Protected</text><path d="M155 212H176" stroke="#b65343" opacity=".45" stroke-dasharray="4 4"/><text x="186" y="218">Original</text></g></svg><p class="bg-outcome">+ higher throughput, lower latency
 + less manual tuning</p></div></article><article class="bg-panel" data-bg-panel="2"><h3>Traffic classification</h3><div class="bg-panel-body"><p class="bg-note">Identify applications from traffic metadata.</p><svg viewBox="0 0 330 230" role="img" aria-labelledby="bg-classification-title"><title id="bg-classification-title">Encrypted traffic classified as a video call. Two small packet delays incorrectly change the label to web browsing; knowledge-guided training restores the video-call label for this illustrative perturbed flow.</title><path d="M9 153H321" stroke="#a5b5bd" stroke-width="2"/><g fill="none" stroke="#71848c" stroke-width="2"><rect x="297" y="65" width="23" height="19" rx="2"/><path d="M302 65V59a7 7 0 0 1 14 0v6"/></g><rect class="bg-packet " x="16" y="112" width="7" height="40" fill="#327762"/><rect class="bg-packet " x="31" y="78" width="7" height="74" fill="#327762"/><rect class="bg-packet bg-packet-shift" x="43" y="125" width="7" height="27" fill="#327762"/><rect class="bg-packet " x="69" y="71" width="7" height="81" fill="#327762"/><rect class="bg-packet " x="82" y="104" width="7" height="48" fill="#327762"/><rect class="bg-packet " x="94" y="129" width="7" height="23" fill="#327762"/><rect class="bg-packet " x="123" y="74" width="7" height="78" fill="#327762"/><rect class="bg-packet " x="136" y="117" width="7" height="35" fill="#327762"/><rect class="bg-packet " x="162" y="85" width="7" height="67" fill="#327762"/><rect class="bg-packet " x="174" y="120" width="7" height="32" fill="#327762"/><rect class="bg-packet " x="186" y="91" width="7" height="61" fill="#327762"/><rect class="bg-packet " x="213" y="78" width="7" height="74" fill="#327762"/><rect class="bg-packet " x="225" y="112" width="7" height="40" fill="#327762"/><rect class="bg-packet bg-packet-shift" x="239" y="122" width="7" height="30" fill="#327762"/><rect class="bg-packet " x="257" y="71" width="7" height="81" fill="#327762"/><rect class="bg-packet " x="270" y="99" width="7" height="53" fill="#327762"/><g class="bg-perturb" fill="none" stroke="#b65343" stroke-width="1.5"><path d="M43 125h7v27h-7zM239 122h7v30h-7z" stroke-dasharray="2 2"/><path d="M43 165h18m-5-3 5 3-5 3M239 165h18m-5-3 5 3-5 3"/></g><g class="bg-video-label"><rect x="9" y="194" width="112" height="31" rx="15" fill="#327762"/><text x="65" y="215" text-anchor="middle">Video call</text></g><g class="bg-web-label"><rect x="9" y="194" width="151" height="31" rx="15" fill="#b65343"/><text x="84" y="215" text-anchor="middle">Web browsing</text></g></svg><p class="bg-outcome">+ no payload inspection
 + QoS and anomaly detection</p></div></article></div>
-    <p class="bg-disclaimer">Illustrative examples, not measured results.</p>
   </div><!-- /background-story -->
 
       </section>
@@ -829,74 +828,66 @@
         <h2 id="community-papers-title">Community reading list</h2>
         <p>Related work connects learning, domain knowledge, and formal reasoning across networked systems and AI applications.
           Contributions from all research groups are welcome, including your own work.</p>
+        <p class="reading-list-hint" id="reading-list-hint">Scroll to explore the papers ↓</p>
+        <div class="reading-list-scroll" role="region" tabindex="0" aria-labelledby="community-papers-title" aria-describedby="reading-list-hint">
         <ol class="paper-list">
           <li>
             <div class="paper-meta">MeshAgent · SIGMETRICS 2026</div>
             <h3><a href="https://dl.acm.org/doi/10.1145/3771567">MeshAgent: Enabling Reliable Network Management with Large Language Models&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Yajie Zhou, Kevin Hsieh, Sathiya Kumaran Mani, Srikanth Kandula, and Zaoxing Liu</strong></p>
-            <p>MeshAgent extracts reusable network invariants and uses them to constrain LLM generation and validate answers.</p>
           </li>
           <li>
             <div class="paper-meta">APEX · Preprint, June 2026</div>
             <h3><a href="https://arxiv.org/abs/2606.11553">APEX: A Network-Native Time-Series Foundation Model for Forecasting and Anomaly Detection for Wireless Edge Operations&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Swadhin Pradhan, Niloo Bahadori, and Peiman Amini</strong></p>
-            <p>APEX learns patterns in wireless network telemetry to forecast network conditions and detect anomalies, with variants for cloud and edge deployment.</p>
           </li>
           <li>
             <div class="paper-meta">TraceCodec · Preprint, May 2026</div>
             <h3><a href="https://arxiv.org/abs/2605.29941v1">TraceCodec: A Compiler-Backed Neural Codec for Stateful Multi-Flow Network Traffic Traces&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Junhui Ding, Xinchen Zhang, Xiaohui Xie, and Shinan Liu</strong></p>
-            <p>TraceCodec learns representations of packet actions, then uses a deterministic compiler to reconstruct packet traces with explicit protocol and TCP-state constraints.</p>
           </li>
           <li>
             <div class="paper-meta">Eywa · NSDI 2026</div>
             <h3><a href="https://www.usenix.org/conference/nsdi26/presentation/mondal">Eywa: Automating Model-Based Testing using LLMs&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Rajdeep Mondal, Rathin Singha, Todd Millstein, George Varghese, Ryan Beckett, and Siva Kesava Reddy Kakarla</strong></p>
-            <p>Eywa uses LLMs to build protocol models from natural-language specifications and symbolic execution to generate high-coverage tests.</p>
           </li>
           <li>
             <div class="paper-meta">Canopy · EuroSys 2026</div>
             <h3><a href="https://dl.acm.org/doi/abs/10.1145/3767295.3769362">Canopy: Property-Driven Learning for Congestion Control&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Chenxi Yang, Divyanshu Saxena, Rohit Dwivedula, Kshiteej Mahajan, Swarat Chaudhuri, and Aditya Akella</strong></p>
-            <p>Canopy uses formal reasoning during training to guide congestion controllers toward safe and robust behavior.</p>
           </li>
           <li>
             <div class="paper-meta">Kepler · Preprint, April 2026</div>
             <h3><a href="https://arxiv.org/abs/2604.25506">Assistants, Not Architects: The Role of LLMs in Networked Systems Design&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Pratyush Sahu, Rahul Bothra, Venkat Arun, Brighten Godfrey, Akshay Narayan, and Ahmed Saeed</strong></p>
-            <p>Kepler combines expert specifications with SMT-based optimization to find feasible networked system designs.</p>
           </li>
           <li>
             <div class="paper-meta">PLUME · Preprint, March 2026</div>
             <h3><a href="https://arxiv.org/abs/2603.13647">PLUME: Building a Network-Native Foundation Model for Wireless Traces via Protocol-Aware Tokenization&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Swadhin Pradhan, Shazal Irshad, and Jerome Henry</strong></p>
-            <p>PLUME encodes protocol fields, timing gaps, and normalized identifiers as structured tokens to learn wireless packet behavior and detect anomalies.</p>
           </li>
           <li>
             <div class="paper-meta">Agent-C · Preprint, December 2025</div>
             <h3><a href="https://arxiv.org/abs/2512.23738">Enforcing Temporal Constraints for LLM Agents&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Adharsh Kamath, Sishen Zhang, Calvin Xu, Shubham Ugare, Gagandeep Singh, and Sasa Misailovic</strong></p>
-            <p>Agent-C uses SMT checks and constrained generation to enforce rules over sequences of AI agent actions.</p>
           </li>
           <li>
             <div class="paper-meta">CEGS · NSDI 2025</div>
             <h3><a href="https://www.usenix.org/conference/nsdi25/presentation/liu-jianmin">CEGS: Configuration Example Generalizing Synthesizer&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Jianmin Liu, Li Chen, Dan Li, and Yukai Miao</strong></p>
-            <p>CEGS uses GNNs and an LLM to generalize configuration examples to new topologies, with SMT-based synthesis and verification to ensure intents are met.</p>
           </li>
           <li>
             <div class="paper-meta">NetDiffusion · SIGMETRICS 2024</div>
             <h3><a href="https://dl.acm.org/doi/10.1145/3639037">NetDiffusion: Network Data Augmentation Through Protocol-Constrained Traffic Generation&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Xi Jiang, Shinan Liu, Aaron Gember-Jacobson, Arjun Nitin Bhagoji, Paul Schmitt, Francesco Bronzino, and Nick Feamster</strong></p>
-            <p>NetDiffusion combines diffusion-based traffic generation with protocol constraints to produce synthetic packet traces.</p>
           </li>
           <li>
             <div class="paper-meta">whiRL · SIGCOMM 2021</div>
             <h3><a href="https://dl.acm.org/doi/abs/10.1145/3452296.3472936">Verifying Learning-Augmented Systems&nbsp;<svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a></h3>
             <p><strong>Tomer Eliyahu, Yafim Kazak, Guy Katz, and Michael Schapira</strong></p>
-            <p>whiRL combines neural-network verification with model checking to verify RL policies and expose requirement-violating scenarios.</p>
           </li>
         </ol>
+        </div>
         <a class="resource" href="references.bib" download>Download BibTeX <span aria-hidden="true">↓</span></a>
         <a class="resource" href="https://github.com/neusymnet/neusymnet.github.io/issues?q=is%3Aissue%20%22%5BPaper%5D%22%20in%3Atitle">Browse paper suggestions <svg class="external-link-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7M21 3 10 14M10 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-4"/></svg></a>
       </section>
@@ -932,22 +923,18 @@
           <li>
             <img src="assets/people/hongyu-he.jpg" width="400" height="400" alt="Hongyu Hè" loading="lazy" />
             <h3><a href="https://hhy.ee.princeton.edu/">Hongyu Hè</a></h3>
-            <span class="people-email">hhy AT g.princeton.edu</span>
           </li>
           <li>
             <img src="assets/people/minhao-jin.jpg" width="373" height="373" alt="Minhao Jin" loading="lazy" />
             <h3><a href="https://jinminhao.github.io/">Minhao Jin</a></h3>
-            <span class="people-email">minhaoj AT princeton.edu</span>
           </li>
           <li>
             <img src="assets/people/fengchen-gong.jpg" width="400" height="400" alt="Fengchen Gong" loading="lazy" />
             <h3><a href="https://gongfchen.github.io/">Fengchen Gong</a></h3>
-            <span class="people-email">fg3738 AT cs.princeton.edu</span>
           </li>
           <li>
             <img src="assets/people/maria-apostolaki.jpg" width="400" height="400" alt="Maria Apostolaki" loading="lazy" />
-            <h3><a href="https://netsyn.princeton.edu/people/maria-apostolaki">Maria Apostolaki (PI)</a></h3>
-            <span class="people-email">apostolaki AT princeton.edu</span>
+            <h3><a href="https://netsyn.princeton.edu/people/maria-apostolaki">Maria Apostolaki</a> (PI)</h3>
           </li>
         </ul>
       </section>

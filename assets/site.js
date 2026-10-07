@@ -55,6 +55,18 @@ function renderVisual(container, markup) {
   }
 }
 
+function watchDemoVisibility(visual, onChange) {
+  if (!("IntersectionObserver" in window)) {
+    onChange(true);
+    return;
+  }
+  const observer = new IntersectionObserver(
+    ([entry]) => onChange(entry.isIntersecting && entry.intersectionRatio >= 0.1),
+    { threshold: [0, 0.1] },
+  );
+  observer.observe(visual);
+}
+
 for (const figure of document.querySelectorAll("[data-demo]")) {
   const name = figure.dataset.demo;
   const visual = figure.querySelector("[data-visual]");
@@ -63,12 +75,15 @@ for (const figure of document.querySelectorAll("[data-demo]")) {
   const playButton = figure.querySelector("[data-play]");
   let current = 0;
   let timer;
+  let wantsPlayback = true;
+  let visible = false;
   const buttons = steps[name].map((step, index) => {
     const button = document.createElement("button");
     button.type = "button";
     button.innerHTML = `<span aria-hidden="true">0${index + 1}</span>${step.label}`;
     button.addEventListener("click", () => {
-      pause();
+      wantsPlayback = false;
+      syncPlayback();
       render(index);
     });
     navigation.append(button);
@@ -81,56 +96,44 @@ for (const figure of document.querySelectorAll("[data-demo]")) {
     narration.textContent = steps[name][current].text;
     setPressed(buttons, (button) => buttons.indexOf(button) === current);
   }
-  function pause(stopMotion = true) {
-    clearInterval(timer);
-    if (stopMotion)
-      visual
-        .querySelectorAll(".flow-packet")
-        .forEach((element) =>
-          element.getAnimations().forEach((animation) => animation.pause()),
-        );
-    timer = undefined;
-    figure.classList.remove("is-playing");
-    playButton.textContent = reducedMotion.matches ? "Next step →" : "Play ▷";
-    playButton.setAttribute(
-      "aria-label",
-      `${reducedMotion.matches ? "Next step in" : "Play"} ${name === "pants" ? "PANTS" : name} explanation`,
-    );
-    playButton.setAttribute("aria-pressed", "false");
+  function syncPlayback() {
+    const running = wantsPlayback && visible && !document.hidden && !reducedMotion.matches;
+    figure.classList.toggle("is-playing", running);
+    playButton.textContent = reducedMotion.matches ? "Next step →" : running ? "Pause Ⅱ" : "Play ▷";
+    playButton.setAttribute("aria-label", `${reducedMotion.matches ? "Next step in" : running ? "Pause" : "Play"} ${name === "pants" ? "PANTS" : name} explanation`);
+    playButton.setAttribute("aria-pressed", String(running));
+    narration.setAttribute("aria-live", running ? "off" : "polite");
+    if (running && !timer) {
+      timer = setInterval(() => render((current + 1) % steps[name].length), 2400);
+    } else if (!running) {
+      clearInterval(timer);
+      timer = undefined;
+    }
   }
   playButton.addEventListener("click", () => {
-    if (timer) {
-      pause();
-      return;
-    }
     if (reducedMotion.matches) {
       render((current + 1) % steps[name].length);
       return;
     }
-    if (current === steps[name].length - 1) render(0);
-    visual
-      .querySelectorAll(".flow-packet")
-      .forEach((element) =>
-        element.getAnimations().forEach((animation) => animation.play()),
-      );
-    playButton.textContent = "Pause Ⅱ";
-    figure.classList.add("is-playing");
-    playButton.setAttribute("aria-label", `Pause ${name} explanation`);
-    playButton.setAttribute("aria-pressed", "true");
-    timer = setInterval(() => {
-      if (current < steps[name].length - 1) render(current + 1);
-      else pause();
-    }, 2400);
+    wantsPlayback = !figure.classList.contains("is-playing");
+    syncPlayback();
   });
   figure.querySelector("[data-reset]").addEventListener("click", () => {
-    pause();
     render(0);
+    clearInterval(timer);
+    timer = undefined;
+    wantsPlayback = true;
+    syncPlayback();
   });
   navigation.hidden = false;
   figure.querySelector(".player").hidden = false;
   render(0);
-  pause(false);
-  controllers.push({ pause, redraw: () => render(current) });
+  syncPlayback();
+  watchDemoVisibility(visual, (inView) => {
+    visible = inView;
+    syncPlayback();
+  });
+  controllers.push({ sync: syncPlayback, redraw: () => render(current) });
 }
 
 const liveFigure = document.querySelector("[data-live-demo=lejit]");
@@ -139,7 +142,9 @@ const livePlay = liveFigure.querySelector("[data-lejit-play]");
 const tokenCadence = 1700;
 let tokenCursor = 0,
   tokenClock,
-  liveRunning = !reducedMotion.matches;
+  liveRunning = false,
+  wantsLejit = true,
+  liveVisible = false;
 function renderLejit() {
   liveVisual.innerHTML = lejitDiagram(tokenCursor, compact.matches);
   liveFigure.dataset.tokenCursor = tokenCursor;
@@ -147,6 +152,7 @@ function renderLejit() {
 }
 function syncLejit() {
   clearInterval(tokenClock);
+  liveRunning = wantsLejit && liveVisible && !document.hidden && !reducedMotion.matches;
   liveFigure.classList.toggle("is-paused", !liveRunning);
   livePlay.textContent = reducedMotion.matches
     ? "Next token →"
@@ -174,26 +180,30 @@ livePlay.addEventListener("click", () => {
     renderLejit();
     return;
   }
-  liveRunning = !liveRunning;
+  wantsLejit = !liveRunning;
   syncLejit();
 });
 liveFigure.querySelector("[data-lejit-reset]").addEventListener("click", () => {
   tokenCursor = 0;
+  wantsLejit = true;
   renderLejit();
   syncLejit();
 });
 liveFigure.addEventListener("focusin", (event) => {
   if (event.target.closest("[data-tooltip]")) {
-    liveRunning = false;
+    wantsLejit = false;
     syncLejit();
   }
 });
 liveFigure.querySelector(".player").hidden = false;
 renderLejit();
 syncLejit();
+watchDemoVisibility(liveVisual, (inView) => {
+  liveVisible = inView;
+  syncLejit();
+});
 compact.addEventListener("change", renderLejit);
 reducedMotion.addEventListener("change", () => {
-  liveRunning = !reducedMotion.matches;
   renderLejit();
   syncLejit();
 });
@@ -318,10 +328,10 @@ compact.addEventListener("change", () => {
   renderPackets(packetCase);
 });
 reducedMotion.addEventListener("change", () =>
-  controllers.forEach((controller) => controller.pause()),
+  controllers.forEach((controller) => controller.sync()),
 );
 document.addEventListener("visibilitychange", () => {
-  if (document.hidden) controllers.forEach((controller) => controller.pause());
+  controllers.forEach((controller) => controller.sync());
 });
 const menu = document.querySelector(".mobile-menu");
 const paperToc = document.querySelector(".paper-toc");
@@ -459,3 +469,41 @@ document.addEventListener("keydown", (event) => {
 });
 window.addEventListener("scroll", hideTooltip, { passive: true });
 window.addEventListener("resize", hideTooltip);
+
+// Keep the reading-list scroll control visible on systems with overlay scrollbars.
+const readingList = document.querySelector(".reading-list-scroll");
+if (readingList) {
+  const shell = document.createElement("div");
+  shell.className = "reading-list-shell";
+  readingList.before(shell);
+  shell.append(readingList);
+  readingList.id = "community-reading-scroll";
+  readingList.classList.add("has-scroll-control");
+  const scrollControl = document.createElement("input");
+  scrollControl.type = "range";
+  scrollControl.className = "reading-list-scroll-control";
+  scrollControl.min = "0";
+  scrollControl.max = "1000";
+  scrollControl.value = "0";
+  scrollControl.setAttribute("aria-label", "Scroll community reading list");
+  scrollControl.setAttribute("aria-controls", readingList.id);
+  scrollControl.setAttribute("aria-orientation", "vertical");
+  shell.append(scrollControl);
+  const syncScrollControl = () => {
+    const maxScroll = readingList.scrollHeight - readingList.clientHeight;
+    const fraction = maxScroll > 0 ? readingList.scrollTop / maxScroll : 0;
+    scrollControl.value = String(Math.round(fraction * 1000));
+    scrollControl.disabled = maxScroll <= 0;
+    scrollControl.setAttribute("aria-valuetext", `${Math.round(fraction * 100)}% through the reading list`);
+  };
+  scrollControl.addEventListener("input", () => {
+    readingList.scrollTop = (Number(scrollControl.value) / 1000) *
+      (readingList.scrollHeight - readingList.clientHeight);
+    syncScrollControl();
+  });
+  readingList.addEventListener("scroll", syncScrollControl, { passive: true });
+  const scrollResize = new ResizeObserver(syncScrollControl);
+  scrollResize.observe(readingList);
+  scrollResize.observe(readingList.querySelector(".paper-list"));
+  syncScrollControl();
+}
