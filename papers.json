@@ -1,0 +1,135 @@
+{
+  "community": [
+    {
+      "venue": "SIGMETRICS 2026",
+      "title": "MeshAgent: Enabling Reliable Network Management with Large Language Models",
+      "url": "https://dl.acm.org/doi/10.1145/3771567",
+      "authors": [
+        "Yajie Zhou",
+        "Kevin Hsieh",
+        "Sathiya Kumaran Mani",
+        "Srikanth Kandula",
+        "Zaoxing Liu"
+      ]
+    },
+    {
+      "venue": "Preprint, June 2026",
+      "title": "APEX: A Network-Native Time-Series Foundation Model for Forecasting and Anomaly Detection for Wireless Edge Operations",
+      "url": "https://arxiv.org/abs/2606.11553",
+      "authors": [
+        "Swadhin Pradhan",
+        "Niloo Bahadori",
+        "Peiman Amini"
+      ]
+    },
+    {
+      "venue": "Preprint, May 2026",
+      "title": "TraceCodec: A Compiler-Backed Neural Codec for Stateful Multi-Flow Network Traffic Traces",
+      "url": "https://arxiv.org/abs/2605.29941v1",
+      "authors": [
+        "Junhui Ding",
+        "Xinchen Zhang",
+        "Xiaohui Xie",
+        "Shinan Liu"
+      ]
+    },
+    {
+      "venue": "NSDI 2026",
+      "title": "Eywa: Automating Model-Based Testing using LLMs",
+      "url": "https://www.usenix.org/conference/nsdi26/presentation/mondal",
+      "authors": [
+        "Rajdeep Mondal",
+        "Rathin Singha",
+        "Todd Millstein",
+        "George Varghese",
+        "Ryan Beckett",
+        "Siva Kesava Reddy Kakarla"
+      ]
+    },
+    {
+      "venue": "EuroSys 2026",
+      "title": "Canopy: Property-Driven Learning for Congestion Control",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3767295.3769362",
+      "authors": [
+        "Chenxi Yang",
+        "Divyanshu Saxena",
+        "Rohit Dwivedula",
+        "Kshiteej Mahajan",
+        "Swarat Chaudhuri",
+        "Aditya Akella"
+      ]
+    },
+    {
+      "venue": "Preprint, April 2026",
+      "title": "Assistants, Not Architects: The Role of LLMs in Networked Systems Design",
+      "url": "https://arxiv.org/abs/2604.25506",
+      "authors": [
+        "Pratyush Sahu",
+        "Rahul Bothra",
+        "Venkat Arun",
+        "Brighten Godfrey",
+        "Akshay Narayan",
+        "Ahmed Saeed"
+      ]
+    },
+    {
+      "venue": "Preprint, March 2026",
+      "title": "PLUME: Building a Network-Native Foundation Model for Wireless Traces via Protocol-Aware Tokenization",
+      "url": "https://arxiv.org/abs/2603.13647",
+      "authors": [
+        "Swadhin Pradhan",
+        "Shazal Irshad",
+        "Jerome Henry"
+      ]
+    },
+    {
+      "venue": "ICLR 2026 Workshop",
+      "title": "Enforcing Temporal Constraints for LLM Agents",
+      "url": "https://openreview.net/forum?id=VeRehDnGJJ",
+      "authors": [
+        "Adharsh Kamath",
+        "Sishen Zhang",
+        "Changming Xu",
+        "Shubham Ugare",
+        "Gagandeep Singh",
+        "Sasa Misailovic"
+      ]
+    },
+    {
+      "venue": "NSDI 2025",
+      "title": "CEGS: Configuration Example Generalizing Synthesizer",
+      "url": "https://www.usenix.org/conference/nsdi25/presentation/liu-jianmin",
+      "authors": [
+        "Jianmin Liu",
+        "Li Chen",
+        "Dan Li",
+        "Yukai Miao"
+      ]
+    },
+    {
+      "venue": "SIGMETRICS 2024",
+      "title": "NetDiffusion: Network Data Augmentation Through Protocol-Constrained Traffic Generation",
+      "url": "https://dl.acm.org/doi/10.1145/3639037",
+      "authors": [
+        "Xi Jiang",
+        "Shinan Liu",
+        "Aaron Gember-Jacobson",
+        "Arjun Nitin Bhagoji",
+        "Paul Schmitt",
+        "Francesco Bronzino",
+        "Nick Feamster"
+      ]
+    },
+    {
+      "venue": "SIGCOMM 2021",
+      "title": "Verifying Learning-Augmented Systems",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3452296.3472936",
+      "authors": [
+        "Tomer Eliyahu",
+        "Yafim Kazak",
+        "Guy Katz",
+        "Michael Schapira"
+      ]
+    }
+  ]
+}

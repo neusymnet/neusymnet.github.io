@@ -6,7 +6,9 @@ import {
   guardDiagram,
   packetDiagram,
 } from "../assets/diagrams.js";
+import { loadPapers, injectPapers } from "./papers.mjs";
 let html = await readFile("index.html", "utf8");
+html = injectPapers(html, await loadPapers());
 html = html.replace(/<!-- background-story -->[\s\S]*?<!-- \/background-story -->/, `<!-- background-story -->${renderBackground()}<!-- /background-story -->`);
 for (const name of Object.keys(steps)) {
   const start = `<!-- visual:${name} -->`,

@@ -12,6 +12,7 @@ import {
   fineTraces,
   lejitTokenFrame,
 } from "../assets/diagrams.js";
+import { loadPapers, injectPapers, normalizeTitle } from "./papers.mjs";
 let paths = [""];
 for (let digit = 0; digit < 2; digit++)
   paths = paths.flatMap((prefix) =>
@@ -83,6 +84,28 @@ for (const name of Object.keys(steps))
     "Static diagrams must exist before JavaScript runs",
   );
 assert.ok(!html.includes("text-transform:uppercase"));
+const papers = await loadPapers();
+const bib = await readFile("references.bib", "utf8");
+const bibKeys = [...bib.matchAll(/^@\w+\{([^,\s]+),/gm)].map((m) => m[1]);
+assert.equal(bibKeys.length, new Set(bibKeys).size, "references.bib has a duplicate key");
+const seen = new Set();
+for (const paper of Object.values(papers).flat()) {
+  const label = paper.title;
+  for (const field of ["venue", "title", "url"])
+    assert.ok(paper[field], `${label}: missing ${field}`);
+  assert.ok(paper.authors?.length, `${label}: missing authors`);
+  for (const { url } of [paper, ...(paper.links ?? [])])
+    assert.match(url, /^(https?:\/\/|#)/, `${label}: link must be http(s) or #fragment`);
+  for (const id of [paper.url, normalizeTitle(paper.title)]) {
+    assert.ok(!seen.has(id), `${label}: duplicate paper (${id})`);
+    seen.add(id);
+  }
+}
+assert.equal(
+  injectPapers(html, papers),
+  html,
+  "index.html is out of date with papers.json; run npm run build",
+);
 console.log(
   "Passed: exhaustive token completions, rules, timing constraints, telemetry totals, every diagram state, anchors, and static fallbacks.",
 );
