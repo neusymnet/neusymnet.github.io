@@ -1,0 +1,62 @@
+name: Add suggested paper
+
+# Adding the "accepted" label to a "[Paper]" issue opens a pull request that
+# adds the paper to papers.json and rebuilds reading-list.html.
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  add-paper:
+    if: github.event.label.name == 'accepted' && startsWith(github.event.issue.title, '[Paper]')
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      ISSUE_BODY: ${{ github.event.issue.body }}
+      BRANCH: add-paper-${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Add paper to papers.json
+        id: add
+        run: node scripts/add-paper.mjs 2>&1 | tee "$RUNNER_TEMP/add-paper.log"; exit "${PIPESTATUS[0]}"
+        env:
+          PR_BODY_FILE: ${{ runner.temp }}/pr-body.md
+      - run: npm run build
+      - run: npm run check
+      - name: Open pull request
+        env:
+          TITLE: ${{ steps.add.outputs.title }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add papers.json reading-list.html
+          git commit -m "Add $TITLE to reading list"
+          git push --force origin "$BRANCH"
+          if gh pr view "$BRANCH" --json state -q .state | grep -q OPEN; then
+            gh pr edit "$BRANCH" --body-file "$RUNNER_TEMP/pr-body.md"
+          else
+            gh pr create --head "$BRANCH" --title "Add paper: $TITLE" --body-file "$RUNNER_TEMP/pr-body.md"
+          fi
+      - name: Report failure on the issue
+        if: failure()
+        run: |
+          {
+            echo "Could not add this paper automatically:"
+            echo
+            echo '```'
+            tail -n 20 "$RUNNER_TEMP/add-paper.log" 2>/dev/null || echo "See the workflow run log."
+            echo '```'
+            echo
+            echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          } > "$RUNNER_TEMP/comment.md"
+          gh issue comment "$ISSUE_NUMBER" --body-file "$RUNNER_TEMP/comment.md"

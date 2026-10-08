@@ -1,6 +1,19 @@
 {
   "community": [
     {
+      "venue": "NSDI 2027",
+      "title": "On the Role of LLMs in Designing the Architecture of Networked Systems",
+      "url": "https://arxiv.org/abs/2604.25506",
+      "authors": [
+        "Pratyush Sahu",
+        "Rahul Bothra",
+        "Venkat Arun",
+        "Brighten Godfrey",
+        "Akshay Narayan",
+        "Ahmed Saeed"
+      ]
+    },
+    {
       "venue": "SIGMETRICS 2026",
       "title": "MeshAgent: Enabling Reliable Network Management with Large Language Models",
       "url": "https://dl.acm.org/doi/10.1145/3771567",
@@ -57,19 +70,6 @@
         "Kshiteej Mahajan",
         "Swarat Chaudhuri",
         "Aditya Akella"
-      ]
-    },
-    {
-      "venue": "Preprint, April 2026",
-      "title": "Assistants, Not Architects: The Role of LLMs in Networked Systems Design",
-      "url": "https://arxiv.org/abs/2604.25506",
-      "authors": [
-        "Pratyush Sahu",
-        "Rahul Bothra",
-        "Venkat Arun",
-        "Brighten Godfrey",
-        "Akshay Narayan",
-        "Ahmed Saeed"
       ]
     },
     {
