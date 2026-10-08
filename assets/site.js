@@ -337,7 +337,7 @@ const menu = document.querySelector(".mobile-menu");
 const paperToc = document.querySelector(".paper-toc");
 const masthead = document.querySelector(".masthead");
 const tocRail = matchMedia("(min-width: 1800px) and (min-height: 741px)");
-const paperLinks = [...paperToc.querySelectorAll("a")];
+const paperLinks = [...paperToc.querySelectorAll('a[href^="#"]')];
 const paperSections = paperLinks.map((link) =>
   document.querySelector(link.hash),
 );
@@ -469,41 +469,3 @@ document.addEventListener("keydown", (event) => {
 });
 window.addEventListener("scroll", hideTooltip, { passive: true });
 window.addEventListener("resize", hideTooltip);
-
-// Keep the reading-list scroll control visible on systems with overlay scrollbars.
-const readingList = document.querySelector(".reading-list-scroll");
-if (readingList) {
-  const shell = document.createElement("div");
-  shell.className = "reading-list-shell";
-  readingList.before(shell);
-  shell.append(readingList);
-  readingList.id = "community-reading-scroll";
-  readingList.classList.add("has-scroll-control");
-  const scrollControl = document.createElement("input");
-  scrollControl.type = "range";
-  scrollControl.className = "reading-list-scroll-control";
-  scrollControl.min = "0";
-  scrollControl.max = "1000";
-  scrollControl.value = "0";
-  scrollControl.setAttribute("aria-label", "Scroll community reading list");
-  scrollControl.setAttribute("aria-controls", readingList.id);
-  scrollControl.setAttribute("aria-orientation", "vertical");
-  shell.append(scrollControl);
-  const syncScrollControl = () => {
-    const maxScroll = readingList.scrollHeight - readingList.clientHeight;
-    const fraction = maxScroll > 0 ? readingList.scrollTop / maxScroll : 0;
-    scrollControl.value = String(Math.round(fraction * 1000));
-    scrollControl.disabled = maxScroll <= 0;
-    scrollControl.setAttribute("aria-valuetext", `${Math.round(fraction * 100)}% through the reading list`);
-  };
-  scrollControl.addEventListener("input", () => {
-    readingList.scrollTop = (Number(scrollControl.value) / 1000) *
-      (readingList.scrollHeight - readingList.clientHeight);
-    syncScrollControl();
-  });
-  readingList.addEventListener("scroll", syncScrollControl, { passive: true });
-  const scrollResize = new ResizeObserver(syncScrollControl);
-  scrollResize.observe(readingList);
-  scrollResize.observe(readingList.querySelector(".paper-list"));
-  syncScrollControl();
-}

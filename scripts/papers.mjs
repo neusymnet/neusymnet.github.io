@@ -77,7 +77,7 @@ export const injectPapers = (html, lists) => {
     const start = `<!-- papers:${name} -->`,
       end = `<!-- /papers:${name} -->`;
     const pattern = new RegExp(`${start}([\\s\\S]*?)${end}`);
-    if (!pattern.test(html)) throw new Error(`Missing ${start} in index.html`);
+    if (!pattern.test(html)) throw new Error(`Missing ${start} in the page`);
     html = html.replace(
       pattern,
       (_, existing) => start + renderPaperList(papers, existing) + end,

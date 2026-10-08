@@ -73,11 +73,18 @@ for (const name of Object.keys(steps))
       assert.ok(svg.includes("<title"));
       assert.ok(!svg.includes("NaN"));
     }
-const html = await readFile("index.html", "utf8");
-const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((x) => x[1]);
-assert.equal(ids.length, new Set(ids).size, "Every element ID must be unique");
-for (const [, id] of html.matchAll(/href="#([^"]+)"/g))
-  assert.ok(ids.includes(id), `Missing fragment ${id}`);
+const pages = {};
+for (const page of ["index.html", "reading-list.html"]) {
+  const markup = await readFile(page, "utf8");
+  const ids = [...markup.matchAll(/\bid="([^"]+)"/g)].map((x) => x[1]);
+  assert.equal(ids.length, new Set(ids).size, `${page}: every element ID must be unique`);
+  pages[page] = { markup, ids };
+}
+// Checks in-page fragments and links between the two pages.
+for (const [page, { markup }] of Object.entries(pages))
+  for (const [, target = page, id] of markup.matchAll(/href="((?:index|reading-list)\.html)?(?:#([^"]+))?"/g))
+    if (id) assert.ok(pages[target].ids.includes(id), `${page}: missing fragment ${target}#${id}`);
+const html = pages["index.html"].markup;
 for (const name of Object.keys(steps))
   assert.ok(
     html.includes(`<!-- visual:${name} --><svg`),
@@ -101,10 +108,11 @@ for (const paper of Object.values(papers).flat()) {
     seen.add(id);
   }
 }
+const readingList = pages["reading-list.html"].markup;
 assert.equal(
-  injectPapers(html, papers),
-  html,
-  "index.html is out of date with papers.json; run npm run build",
+  injectPapers(readingList, papers),
+  readingList,
+  "reading-list.html is out of date with papers.json; run npm run build",
 );
 console.log(
   "Passed: exhaustive token completions, rules, timing constraints, telemetry totals, every diagram state, anchors, and static fallbacks.",

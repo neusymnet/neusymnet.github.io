@@ -7,8 +7,11 @@ import {
   packetDiagram,
 } from "../assets/diagrams.js";
 import { loadPapers, injectPapers } from "./papers.mjs";
+await writeFile(
+  "reading-list.html",
+  injectPapers(await readFile("reading-list.html", "utf8"), await loadPapers()),
+);
 let html = await readFile("index.html", "utf8");
-html = injectPapers(html, await loadPapers());
 html = html.replace(/<!-- background-story -->[\s\S]*?<!-- \/background-story -->/, `<!-- background-story -->${renderBackground()}<!-- /background-story -->`);
 for (const name of Object.keys(steps)) {
   const start = `<!-- visual:${name} -->`,
@@ -39,7 +42,7 @@ html = html.replace(
 await writeFile("index.html", html);
 await rm("dist", { recursive: true, force: true });
 await mkdir("dist", { recursive: true });
-for (const file of ["index.html", "references.bib", ".nojekyll"])
+for (const file of ["index.html", "reading-list.html", "references.bib", ".nojekyll"])
   await cp(file, `dist/${file}`);
 await cp("assets", "dist/assets", { recursive: true });
 console.log(

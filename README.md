@@ -22,7 +22,8 @@ The build refreshes the static diagram fallbacks in `index.html` and produces `d
 ## Edit
 
 - `index.html`: manuscript-based prose, headings, the "Papers & resources" list, and accessible fallbacks.
-- `papers.json`: the community reading list (`community`), in display order. Each entry has `venue`, `title`, `url`, and `authors`, plus optional `note`, and `links` (`label`/`url` pairs). Run `npm run build` to write the list into `index.html`; `npm run check` fails if it is out of date.
+- `reading-list.html`: the standalone Community reading list page, which shares `assets/site.css` and loads no JavaScript.
+- `papers.json`: the community reading list (`community`), in display order. Each entry has `venue`, `title`, `url`, and `authors`, plus optional `note`, and `links` (`label`/`url` pairs). Run `npm run build` to write the list into `reading-list.html`; `npm run check` fails if it is out of date.
 - `assets/site.css`: responsive layout, typography, and animation styles.
 - `assets/diagrams.js`: original SVG renderers, explanatory stages, and small rule-checking functions.
 - `assets/research-diagrams.js`: Autogram and TypoNet diagrams, including grammar expansion, evidence filtering, and counterexample loops.
@@ -50,11 +51,11 @@ Overall design inspired by [Clarity](https://github.com/lorenmt/clarity-template
 
 ## Community contributions
 
-The Contribute section links to public GitHub issue forms in `.github/ISSUE_TEMPLATE/` for data/applications, research questions, and paper suggestions. GitHub Issues must be enabled for this repository; the forms become available after they are pushed to the default branch.
+The Contribute section links to public GitHub issue forms in `.github/ISSUE_TEMPLATE/` for data/applications and research questions; the Community reading list section links to the paper-suggestion form. GitHub Issues must be enabled for this repository; the forms become available after they are pushed to the default branch.
 
-The Community reading list precedes the final Contribute & collaborate section in both the page and its navigation. It lists MeshAgent, APEX, TraceCodec, Eywa, Canopy, Kepler, PLUME, Agent-C, CEGS, NetDiffusion, and whiRL from newest to oldest, with full author lists, primary paper links, and publication details. MeshAgent and NetDiffusion use their SIGMETRICS conference years in the list. The list uses a fixed-height scrollable panel with keyboard access; printing expands it to show every entry.
+A short Community reading list section precedes the final Contribute section on the main page and in the page guide. It links to the full list on its own page, `reading-list.html`, and to the Suggest a paper form. It lists MeshAgent, APEX, TraceCodec, Eywa, Canopy, Kepler, PLUME, Agent-C, CEGS, NetDiffusion, and whiRL from newest to oldest, with full author lists, primary paper links, and publication details. MeshAgent and NetDiffusion use their SIGMETRICS conference years in the list. `npm run check` verifies links and fragments between the two pages.
 
-Repository maintainers review paper suggestions for a clear connection between networking, learning, and explicit knowledge or reasoning. Published papers and public preprints from any group are eligible; authors may suggest their own work. Check for duplicates and verify title, authors, publication status, year, and the primary paper link. Add accepted entries to the `community` list in `papers.json` with a concise relevance `note` and the primary paper `url`, then run `npm run build` to update `index.html`. Keep papers behind the existing demos in their current list. Link to the website change when closing an accepted issue, or explain the scope decision for other submissions. Submissions are not published automatically.
+Repository maintainers review paper suggestions for a clear connection between networking, learning, and explicit knowledge or reasoning. Published papers and public preprints from any group are eligible; authors may suggest their own work. Check for duplicates and verify title, authors, publication status, year, and the primary paper link. Add accepted entries to the `community` list in `papers.json` with a concise relevance `note` and the primary paper `url`, then run `npm run build` to update `reading-list.html`. Keep papers behind the existing demos in their current list. Link to the website change when closing an accepted issue, or explain the scope decision for other submissions. Submissions are not published automatically.
 
 For data or application proposals, acknowledge the task and discuss access conditions before requesting data. Questions can remain open for discussion or link to related work. No automated response or review turnaround is promised.
 
