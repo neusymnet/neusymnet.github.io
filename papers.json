@@ -96,6 +96,17 @@
       ]
     },
     {
+      "venue": "NSDI 2026",
+      "title": "Syntra: Synthesizing Cross-Layer Controllers for Low-Latency Video Streaming",
+      "url": "https://www.usenix.org/conference/nsdi26/presentation/pan",
+      "authors": [
+        "Jia Pan",
+        "Anup Agarwal",
+        "Işıl Dillig",
+        "Venkat Arun"
+      ]
+    },
+    {
       "venue": "NSDI 2025",
       "title": "CEGS: Configuration Example Generalizing Synthesizer",
       "url": "https://www.usenix.org/conference/nsdi25/presentation/liu-jianmin",
