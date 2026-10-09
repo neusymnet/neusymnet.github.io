@@ -14,6 +14,41 @@
       ]
     },
     {
+      "venue": "SIGCOMM 2026",
+      "title": "AIDA: Accelerating Root Cause Analysis for Multi-Vendor Device Failures with LLM-Powered Reasoning",
+      "url": "https://dl.acm.org/doi/10.1145/3789240.3829126",
+      "authors": [
+        "Haoran Xu",
+        "Xuan Zeng",
+        "Xumiao Zhang",
+        "Xiaoxi Zhang",
+        "Yang Lv",
+        "Peng Zhang",
+        "Deke Guo",
+        "Ennan Zhai"
+      ]
+    },
+    {
+      "venue": "SIGCOMM 2026",
+      "title": "Networked Agent Memory and Causality Representation: Experiences towards Interpretable Cloud-Scale Root-Causing",
+      "url": "https://dl.acm.org/doi/10.1145/3789240.3829145",
+      "authors": [
+        "Yanyu Ren",
+        "Xianshang Lin",
+        "Chenxu Wang",
+        "Li Chen",
+        "Shuai Wang",
+        "Kaihui Gao",
+        "Dan Li",
+        "Yunfeng Bai",
+        "Chen Tian",
+        "Xinlei Zhang",
+        "Yungang Li",
+        "Tao Lin",
+        "Ennan Zhai"
+      ]
+    },
+    {
       "venue": "SIGMETRICS 2026",
       "title": "MeshAgent: Enabling Reliable Network Management with Large Language Models",
       "url": "https://dl.acm.org/doi/10.1145/3771567",
@@ -44,6 +79,34 @@
         "Xinchen Zhang",
         "Xiaohui Xie",
         "Shinan Liu"
+      ]
+    },
+    {
+      "venue": "NSDI 2026",
+      "title": "UNUM: A New Framework for Network Control",
+      "url": "https://www.usenix.org/conference/nsdi26/presentation/chen-jiayi",
+      "authors": [
+        "Jiayi Chen",
+        "Nihal Sharma",
+        "Debajit Chakraborty",
+        "Saurabh Agarwal",
+        "Jeffrey Zhou",
+        "Aditya Akella",
+        "Sanjay Shakkottai"
+      ]
+    },
+    {
+      "venue": "NSDI 2026",
+      "title": "Towards Performance Robustness for Microservices",
+      "url": "https://www.usenix.org/conference/nsdi26/presentation/saxena",
+      "authors": [
+        "Divyanshu Saxena",
+        "Gaurav Vipat",
+        "Jiaxin Lin",
+        "Jingbo Wang",
+        "Isil Dillig",
+        "Sanjay Shakkottai",
+        "Aditya Akella"
       ]
     },
     {
