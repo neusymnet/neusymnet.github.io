@@ -72,16 +72,27 @@ export const renderPaperList = (papers, existing = "") => {
   );
 };
 
+export const isPreprint = (paper) => /^preprint\b/i.test(paper.venue);
+
+// Each list renders as two blocks derived from the venue, so an accepted
+// preprint moves sections by editing its venue alone.
+const groups = {
+  published: (paper) => !isPreprint(paper),
+  preprints: isPreprint,
+};
+
 export const injectPapers = (html, lists) => {
-  for (const [name, papers] of Object.entries(lists)) {
-    const start = `<!-- papers:${name} -->`,
-      end = `<!-- /papers:${name} -->`;
-    const pattern = new RegExp(`${start}([\\s\\S]*?)${end}`);
-    if (!pattern.test(html)) throw new Error(`Missing ${start} in the page`);
-    html = html.replace(
-      pattern,
-      (_, existing) => start + renderPaperList(papers, existing) + end,
-    );
-  }
+  for (const [list, papers] of Object.entries(lists))
+    for (const [group, belongs] of Object.entries(groups)) {
+      const name = `${list}:${group}`;
+      const start = `<!-- papers:${name} -->`,
+        end = `<!-- /papers:${name} -->`;
+      const pattern = new RegExp(`${start}([\\s\\S]*?)${end}`);
+      if (!pattern.test(html)) throw new Error(`Missing ${start} in the page`);
+      html = html.replace(
+        pattern,
+        (_, existing) => start + renderPaperList(papers.filter(belongs), existing) + end,
+      );
+    }
   return html;
 };
