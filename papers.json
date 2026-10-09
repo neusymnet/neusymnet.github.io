@@ -170,6 +170,20 @@
       ]
     },
     {
+      "venue": "Carnegie Mellon University 2026",
+      "title": "Constrained Creativity for SysOps Agents",
+      "url": "https://kilthub.cmu.edu/articles/preprint/Constrained_Creativity_for_SysOps_Agents/33138296?file=67183613",
+      "authors": [
+        "Sayan Sinha",
+        "Vipul Harsh",
+        "Yajie Zhou",
+        "Marko Morrison",
+        "B. Aditya Prakash",
+        "Vyas Sekar",
+        "Hui Zhang"
+      ]
+    },
+    {
       "venue": "NSDI 2025",
       "title": "CEGS: Configuration Example Generalizing Synthesizer",
       "url": "https://www.usenix.org/conference/nsdi25/presentation/liu-jianmin",
