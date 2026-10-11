@@ -184,6 +184,18 @@
       ]
     },
     {
+      "venue": "Preprint 2026",
+      "title": "Agentic RCA for Internet-Scale Services Using Constrained Creativity",
+      "url": "https://arxiv.org/abs/2610.08622",
+      "authors": [
+        "Sayan Sinha",
+        "Vipul Harsh",
+        "B. Aditya Prakash",
+        "Vyas Sekar",
+        "Hui Zhang"
+      ]
+    },
+    {
       "venue": "NSDI 2025",
       "title": "CEGS: Configuration Example Generalizing Synthesizer",
       "url": "https://www.usenix.org/conference/nsdi25/presentation/liu-jianmin",
