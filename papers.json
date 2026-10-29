@@ -196,6 +196,20 @@
       ]
     },
     {
+      "venue": "APNet 2026",
+      "title": "Towards Learned Switch Behavior Modeling",
+      "url": "https://dl.acm.org/doi/10.1145/3820441.3820465",
+      "authors": [
+        "Daqian Ding",
+        "Ziqian Liu",
+        "Zhixiong Niu",
+        "Ziyu Mao",
+        "Jingyu Wang",
+        "Yongqiang Xiong",
+        "Yiming Qiu"
+      ]
+    },
+    {
       "venue": "NSDI 2025",
       "title": "CEGS: Configuration Example Generalizing Synthesizer",
       "url": "https://www.usenix.org/conference/nsdi25/presentation/liu-jianmin",
