@@ -104,6 +104,18 @@ svg {
   width: min(850px, calc(100% - 64px));
   margin-inline: auto;
 }
+.featured-video {
+  margin-block: 32px 64px;
+}
+.featured-video iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 12px;
+  background: #06151d;
+}
 .skip {
   position: fixed;
   top: 10px;
